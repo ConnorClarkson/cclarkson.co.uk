@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>webapp</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/fontawesome/all.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar/nav.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/footer/footer.css') }}">
+
+    {% block header %} {% endblock %}
+
+</head>
+<body>
+<!--
+Nav Bar
+-->
+{% include 'navbar.html' %}
+<!--
+Content
+-->
+
+{% block content %}{% endblock %}
+
+
+<!--
+Footer
+-->
+{% include 'footer.html' %}
+</body>
+</html>

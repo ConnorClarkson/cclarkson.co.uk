@@ -1,0 +1,12 @@
+footer {
+    max-height:100px;
+}
+.row #social-links {
+    text-align: center;
+    display:inline-block;
+
+
+}
+#social-links  a > i {
+    padding-left:30%;
+}

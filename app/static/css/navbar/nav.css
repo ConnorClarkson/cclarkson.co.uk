@@ -1,0 +1,21 @@
+header #logo-main {
+  display: block;
+  margin: 20px auto;
+  margin-bottom: 0px;
+}
+
+#navbar-primary.navbar-collapse {
+  width: 100%;
+  text-align: center;
+}
+.navbar-nav > a {
+  display: inline-block;
+  float: none;
+  padding-left: 30px;
+  padding-right: 30px;
+  color: black;
+
+}
+.navbar-nav a:hover {
+  background-color: gray;
+}
