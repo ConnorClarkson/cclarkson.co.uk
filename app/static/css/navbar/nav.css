@@ -14,8 +14,10 @@ header #logo-main {
   padding-left: 30px;
   padding-right: 30px;
   color: black;
+  margin-bottom:5px;
 
 }
 .navbar-nav a:hover {
-  background-color: gray;
+  margin-bottom:0px;
+  border-bottom: 5px solid #000000;
 }
