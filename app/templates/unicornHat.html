@@ -1,0 +1,35 @@
+{% extends "base/base.html" %}
+{% block head_css %}
+   {{ super()}}
+   <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+
+{% endblock %}
+
+{% block content %}
+
+    <form action="/unicornHat" method="POST">
+        <p>Rectangle color:</p>
+        {% if color %}
+            <input class="jscolor" name="color_picker" value="{{color}}" /><br>
+        {% else %}
+            <input class="jscolor" name="color_picker"/><br>
+        {% endif %}
+        <input type="password"  name="password" required/><br>
+        <button type="submit" class="btn btn-primary">Color</button>
+
+    </form>
+
+
+    {% if returned_value['current_colour'] %}
+        {{ returned_value['current_colour'] }}
+    {% endif %}
+    {% if returned_value['error'] %}
+        <h1>ERROR: {{returned_value['error']}}</h1>
+    {% endif %}
+{% endblock %}
+
+
+{% block end_js %}
+    <script src="{{url_for('static',filename='js/jscolor.js')}}"></script>
+
+{% endblock %}

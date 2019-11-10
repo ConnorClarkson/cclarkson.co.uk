@@ -1,0 +1,54 @@
+{% extends "base/base.html" %}
+{% block head_css %}
+   {{ super()}}
+   <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+
+{% endblock %}
+
+
+{% block content %}
+   <div class="container">
+
+   {% for animal in returned_value %}
+      {% if loop.index0 % 2 == 0 %}
+         {% if not loop.first %}
+         <!-- {{loop.index}}-->
+         </div>
+         {% endif %}
+          <div class="row" style="">
+      {% endif %}
+         <div class="col" style="padding-left:15px;margin:10px">
+               <div class="row" style="padding-left:15px">
+                  <h3 >{{animal[4] | replace("_"," ")}}</h3>
+               </div>
+               <div class="row">
+                  <div class="col-6">
+                     <img class="extinctionimg" src="{{animal[6]}}" style="max-height:250px;max-width:250px">
+                  </div>
+                  <div class="col-6">
+                     <img class="extinctionimg" src="{{animal[7]}}" style="max-height:250px;max-width:250px">
+                  </div>
+
+               </div>
+               <div class="row">
+                  <div class="col">
+                     <ul style="list-style-type:none; text-align:left;padding:0px;">
+                         <li><strong><u>Facts</u></strong></li>
+                         {% for stat in animal[2] %}
+                            <li><strong>{{stat[0]}}:</strong> {{stat[1]}}</li>
+                         {% endfor %}
+                         <li><strong>WWF: </strong><a href="{{animal[0]}}" >{{animal[1]}}</a> </li>
+                     </ul>
+                  </div>
+
+               </div>
+         </div>
+   {% endfor %}
+          </div>
+   </div>
+{% endblock %}
+
+
+{% block end_js %}
+
+{% endblock %}
