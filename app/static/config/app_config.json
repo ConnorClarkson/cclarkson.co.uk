@@ -6,5 +6,13 @@
         "Tool_Desc": "A web UI for changing the unicornHat on a raspberry pi Zero, using aws lambda and aws IOT",
         "Route": "/unicornHat",
         "Template": "unicornHat.html"
+    },
+    {
+        "Tool_Name": "extinction",
+        "Title": "Population of Endangered animals displayed as pixelated version ",
+        "Img_URL": "img/apps/extinction.jpg",
+        "Tool_Desc": "A python script scrapes WWF's list of endagered animals and then converts the images to the pixel count of the remaining population",
+        "Route": "/Extinction",
+        "Template": "extinction.html"
     }
 ]

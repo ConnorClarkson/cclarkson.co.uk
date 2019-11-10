@@ -5,6 +5,7 @@ import boto3
 import botocore
 
 from app import settings
+import hashlib
 
 with open(os.path.join(settings.APP_STATIC, 'KEYS/aws.json'))as f:
     aws_config = json.load(f)
@@ -14,7 +15,7 @@ client = boto3.client('lambda', region_name='eu-west-2',
                       aws_secret_access_key=aws_config['aws_secret_access_key'])
 
 
-def main(request_type, value=None):
+def main(password, value=None):
     def response_to_json(response):
         response_payload = json.loads(response['Payload'].read().decode("utf-8"))
         return response_payload['state']['reported']
@@ -43,14 +44,20 @@ def main(request_type, value=None):
             return get_current_color()
         except Exception as e:
             print(e)
+    if not password:
+        return None
 
+    if password.hexdigest() == aws_config['app_pass']:
 
-    if request_type == "GET":
-        try:
-            value = get_current_color()
-        except botocore.exceptions.EndpointConnectionError:
-            return {"error": "Unable to connect to IOT device"}
-        return {"current_colour": value}
+        if not value:
+            try:
+
+                value = get_current_color()
+            except botocore.exceptions.EndpointConnectionError:
+                return {"error": "Unable to connect to IOT device"}
+            return {"current_colour": value}
+        else:
+            value = send_new_colour(value)
+            return {"current_colour": value}
     else:
-        value = send_new_colour(value)
-        return {"current_colour": value}
+        return {"error": "Incorrect Password"}

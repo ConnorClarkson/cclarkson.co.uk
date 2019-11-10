@@ -10,10 +10,11 @@
     <form action="/unicornHat" method="POST">
         <p>Rectangle color:</p>
         {% if color %}
-            <input class="jscolor" name="color_picker" value="{{color}}" />
+            <input class="jscolor" name="color_picker" value="{{color}}" /><br>
         {% else %}
-            <input class="jscolor" name="color_picker"/>
+            <input class="jscolor" name="color_picker"/><br>
         {% endif %}
+        <input type="password"  name="password" required/><br>
         <button type="submit" class="btn btn-primary">Color</button>
 
     </form>

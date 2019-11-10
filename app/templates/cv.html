@@ -27,10 +27,9 @@
                         {{build_cert(proj) }}
 
                      {% endif %}
-
-                     {% for line in proj['short_bio'] %}
-                        <p style="text-align:left">{{line}}</p>
-                     {% endfor %}
+                     {% if  proj['short_bio'] |string() != "" %}
+                        <p style="text-align:left;"> {{ proj['short_bio'] }} </p>
+                     {% endif %}
                   </li>
                </ul>
             </div>
