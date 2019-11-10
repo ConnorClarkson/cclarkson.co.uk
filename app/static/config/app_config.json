@@ -8,10 +8,10 @@
         "Template": "unicornHat.html"
     },
     {
-        "Tool_Name": "extinction",
+        "Tool_Name": "Extinction",
         "Title": "Population of Endangered animals displayed as pixelated version ",
         "Img_URL": "img/apps/extinction.jpg",
-        "Tool_Desc": "A python script scrapes WWF's list of endagered animals and then converts the images to the pixel count of the remaining population",
+        "Tool_Desc": "A python script that scrapes WWF's list of endangered animals and then converts the images to the pixel count of the remaining population",
         "Route": "/Extinction",
         "Template": "extinction.html"
     }

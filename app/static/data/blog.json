@@ -1,0 +1,32 @@
+[
+  {
+    "id": "Extinction",
+    "type":"blog",
+    "title": "Pixel Extinction",
+    "link": "http://cclarkson.co.uk/Extinction",
+    "github": "",
+    "img_src": "",
+    "short_bio": "A python script that scrapes WWF's list of endangered animals and then converts the images to the pixel count of the remaining population",
+    "bio": ""
+  },
+  {
+    "id": "Personal_Blog",
+    "type":"blog",
+    "title": "Personal Blog",
+    "link": "http://cclarkson.co.uk",
+    "github": "",
+    "img_src": "",
+    "short_bio": "A flask app built to host my online CV and post blog posts about development tasks i have completed.",
+    "bio": ""
+  },
+  {
+    "id": "official_danc",
+    "type":"blog",
+    "title": "Official Danc",
+    "link": "http://officialdanc.co.uk",
+    "github": "",
+    "img_src": "",
+    "short_bio": "A flask app built to create a online presence for officialdanc",
+    "bio": ""
+  }
+]

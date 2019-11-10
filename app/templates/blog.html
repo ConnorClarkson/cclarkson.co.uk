@@ -3,81 +3,24 @@
 {{ super()}}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
 <style>
-      h2 {width:100%;text-align:left;}
-
-
-
-
+      h3 {width:100%;text-align:left;}
 
 </style>
 {% endblock %}
 
 {% block content %}
 <div class="container">
-    {% if text %}
-    {% if text['type'] == "work" %}
-    <div class="row">
-        <ul style="list-style-type:none; text-align:left;float:left; padding-left:0px;">
-            <li><h3>{{ text['job_title'] }}</h3></li>
-            <li><h3>{{ text['company'] }}</h3></li>
-            <li><h3>{{ text['dates'] }}</h3></li>
-            <li>&nbsp;</li>
-            <li><h5>{{ text['short_bio'] }}</h5></li>
-        </ul>
-    </div>
+    <h3>Posts</h3>
     <hr/>
-    <div class="row">
-        <h2>Projects</h2>
-        <ul style="list-style-type:none; text-align:left;">
-            {% for project in text['bio'] %}
-            <li>{{ project }}</li>
-            <li>&nbsp;</li>
-            {% endfor %}
-        </ul>
-    </div>
+    <ul style="list-style-type: none;text-align:left;">
+        {% for post in blog %}
+       <li> <h5><u>{{ post['title'] }}</u></h5></li>
+        <li><a href="{{ post['link'] }}">{{ post['link'] }} </a></li>
+        <li>{{ post['short_bio'] }}</li>
+        <li><a href="{{ url_for('blog_extended', post_id=post['id']) }}" >Read more..</a></li>
+        <li>&nbsp;</li>
 
-    <div class="row">
-        <h2>Responsibilities</h2>
-        <ul style="list-style-type:none; text-align:left;">
-            {% for project in text['responsibilities'] %}
-            <li>{{ project }}</li>
-            <li>&nbsp;</li>
-            {% endfor %}
-        </ul>
-    </div>
-
-    <div class="row">
-        <h2>Achievement's</h2>
-        <ul style="list-style-type:none; text-align:left;">
-            {% for project in text['achievements'] %}
-            <li>{{ project }}</li>
-            <li>&nbsp;</li>
-            {% endfor %}
-        </ul>
-    </div>
-    {% elif text['type'] == "education" or text['type'] == "certification" %}
-    <div class="row">
-        <ul style="list-style-type:none; text-align:left;float:left; padding-left:0px;">
-            <li><h3>{{ text['qualification'] }}</h3></li>
-            <li><h3>{{ text['school'] }}</h3></li>
-            <li><h3>{{ text['dates'] }}</h3></li>
-            <li>&nbsp;</li>
-            <li><h5>{{ text['short_bio'] }}</h5></li>
-        </ul>
-    </div>
-    <hr/>
-    <div class="row">
-        <h2>Course</h2>
-        <ul style="list-style-type:none; text-align:left;">
-            {% for project in text['bio'] %}
-            {% if '-' not in project[1] %}
-            <li>&nbsp;</li>
-            {% endif %}
-            <li>{{ project }}</li>
-            {% endfor %}
-        </ul>
-    </div>
-    {% endif %}
-    {% endif %}
+        {% endfor %}
+    </ul>
 </div>
 {% endblock %}
