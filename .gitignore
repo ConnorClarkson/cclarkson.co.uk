@@ -3,3 +3,4 @@ venv/
 .pem
 .jpg
 KEYS/
+/FlaskApp.pem
