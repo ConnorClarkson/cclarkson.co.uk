@@ -6,7 +6,7 @@
         "qualification": "AWS Technical Essentials & Developing on AWS",
         "school": "QA",
         "type": "certification",
-        "short_bio": ""
+        "short_bio": "This introductory course, demonstrates the basics AWS products, services, and common solutions. "
      }
   ],
   "2018": [
@@ -16,7 +16,7 @@
       "qualification": "Introduction to Cyber Security",
       "school": "Open University",
       "type": "education",
-      "short_bio": ""
+      "short_bio": "An open University course to understand the fundamentals of cyber security and how to protect against online threats.a"
     }
   ],
   "2017": [
@@ -27,7 +27,7 @@
       "qualification": "ITIL® Foundation certificate",
       "school": "BCS",
       "type": "certification",
-      "short_bio": ""
+      "short_bio": "ITIL is a body of knowledge and best practices for successful IT Service Management."
     }
   ],
   "2016": [
@@ -40,17 +40,20 @@
       "short_bio": "Technology stack includes Python, Elasticsearch, Hadoop, SAS, Linux to deliver various projects",
       "bio": [
         "I have been involved in various client-side software engineering projects through my employment. I completed a bespoke training academy covering Object-Oriented design, Java Enterprise, Testing processes, and software lifecycles. Which resulted in multiple professional certifications including Oracle Certified Associate - Java SE 7 Programmer",
-        "Project 1 - Part of a small customer facing development team developing a bespoke data preparation and cleansing tool to prepare the customers for a data migration. Built using VBA, SQL and PowerShell. The project included working with 3rd party suppliers to implement process and backend services and directly with the customer to deliver and train users on how to operate the tool. The tool helped to successfully migrate ~50-60TB of user data.",
-        "Project 2 - Part of a small agile development team based on customer site. Developing and supporting an existing data analysis framework using Linux, Python, Elasticsearch, Kibana, Kafka, and open source tools and micro services. Co-Leading a small team of developers and interns using agile development to bring new features, performance improvements and fixes to a mission critical live environment."
+        "<b>Project 1 </b> - Part of a small customer facing development team developing a bespoke data preparation and cleansing tool to prepare the customers for a data migration. Built using VBA, SQL and PowerShell. The project included working with 3rd party suppliers to implement process and backend services and directly with the customer to deliver and train users on how to operate the tool. The tool helped to successfully migrate ~50-60TB of user data.",
+        "<b>Project 2 </b> - Co-Leading a team of 4 software developers using agile methodologies to deliver and support a bespoke mission critical data analysis framework which turns a daily stream of ~1TB of raw data into rich valuable data through manipulation and enrichments for our analysts. The framework consists of python micro-services, Object orientated component’s, web services using Flask, Behaviour driven development, Unit and integration testing, and version control. I use Jira to plan sprints, confluence to document code and record retrospectives. \n<br/> <b> Key technologies: </b>Linux, Python, Elasticsearch, Kibana, Kafka",
+        "<b>Project 3 </b> - As part of the Data Engineering, working closely with stakeholders to understand  their data and turn it into actionable decisions. Day to day tasks include working with a range of data formats, building reusable data pipelines to transform and standardise data into a conformed schema, data exploration for data quality issues and schema discovery. As well as building a tool to monitor data landing, a script to check the integrity of Parquet files in transit, and small web apps to help analysts to quickly complete mundane tasks quickly.\n<br /> <b>Key technologies:  </b>Linux, Python, Hadoop, Spark, SAS, Flask, Pandas, Bash\n"
+
       ],
       "responsibilities": [
-        "Liaise with Clients and end users directly to gain feedback and requirements",
+        "Communicate with Management, Stakeholders, and end users directly to understand requirements, issues and steps forward.",
         "Working with agile methodologies to deliver iterative project updates",
+        "Co-leading a team to deliver software on time.",
         "Design, Develop, Test, and Deploy code to a high standard"
 
       ],
       "achievements": [
-        "Temporary running a project by myself and reporting to the product owner",
+        "Delivering an mission critical bespoke engineering projects",
         "Develop technical skills to adapt to new technologies between projects",
         "Winning trust of a client and strengthening the company relationship",
         "Leading and mentoring Interns and junior staff"
@@ -64,7 +67,7 @@
       "qualification": "Oracle Certified Associate, Java SE 7 Programmer",
       "school": "Oracle",
       "type": "certification",
-      "short_bio": ""
+      "short_bio": "Oracle Certified Associate Java Programmer (OCAJP 7) is an associate-level certification that validates your basic skills of writing code with fundamental concepts of Java SE 7."
     },
     {
       "id": "ISTQB_bcs",
@@ -72,7 +75,7 @@
       "qualification": "ISTQB-BCS Certiﬁed Tester Foundation Level",
       "school": "BCS",
       "type": "certification",
-      "short_bio": ""
+      "short_bio": "The Foundation Level syllabus forms the basis of the International Software Testing Qualifications Board (ISTQB®) Certified Tester Scheme.\n"
     },
     {
       "id": "university_analyst",
@@ -104,7 +107,7 @@
       "qualification": "Bachelor's Degree with Hons, Computer Science with Games Development",
       "school": "The University of Hull",
       "type": "education",
-      "short_bio": "Studying various computer science topics resulting in a 2:1 Bachelors Degree.",
+      "short_bio": "Studying various computer science topics resulting in a 2:1 Bachelors Degree with Hons.",
       "bio":["First Year Overall Grade - 76%",
         "\t- Computer Systems - 61%",
         "\t- IT and professional Skills - 76%",
@@ -136,7 +139,7 @@
       "company": "University of Hull, Hull",
       "short_bio": "Working within the NHS radiotherapy department to support on going research.",
       "bio": [
-        "As Part of a Collaboration with the University of Hull and Castle Hill Hospital, I have been Working with the Radiotherapy Physics Department to help develop a C# script to work on Eclipse (Varian Medical Systems) to create a tool to support research in radiotherapy.",
+        "As Part of a Collaboration with the University of Hull and NHS Castle Hill Hospital. Working with the Radiotherapy Physics Department to help develop a C# script to work on Eclipse (Varian Medical Systems) to create a tool to support research in radiotherapy.",
         "The Aim of the tool is to aid in the quality assurance process of the Plans"
       ],
       "responsibilities": [
@@ -168,7 +171,8 @@
       ],
       "achievements": [
         "Created a working prototype",
-        "Understanding Virtual Reality technology"
+        "Understanding Virtual Reality technology",
+        "Working to deadlines"
 
       ],
       "type": "work"
@@ -185,7 +189,7 @@
       "bio": [
         "This was a full-time security position working on the Olympic Park for the London 2012 Olympic & Paralympic Games.",
         "During this time, I worked closely with the Armed Forces as part of the radiation team, scanning visitors as they entered the park for increased levels of radiation.",
-        "I had to be alert and react quickly to any alerts. I also worked on the PSA sites bag searching and body searching visitors to the park. I also used the x-ray machine to pre-search bags."
+        "I had to be alert and react quickly to any alerts. I also worked on the personal security areas (PSA), bag searching and body searching visitors to the park. I also used the x-ray machine to pre-search bags."
       ],
       "responsibilities": [
         "First line of security for the Olympic park",

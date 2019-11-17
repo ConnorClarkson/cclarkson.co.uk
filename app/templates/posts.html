@@ -1,0 +1,94 @@
+{% extends "base/base.html" %}
+{% block head_css %}
+{{ super()}}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+<style>
+      h2 {width:100%;text-align:left;}
+
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    {% if text %}
+    {% if text['type'] == "work" %}
+    <div class="row">
+        <ul style="list-style-type:none; text-align:left;float:left; padding-left:0px;">
+            <li><h3>{{ text['job_title'] }}</h3></li>
+            <li><h3>{{ text['company'] }}</h3></li>
+            <li><h4>{{ text['dates'] }}</h4></li>
+            <li>&nbsp;</li>
+            <li><h5>{{ text['short_bio'] }}</h5></li>
+        </ul>
+    </div>
+    <hr/>
+    <div class="row">
+        <h2>Experience</h2>
+        <ul style="list-style-type:none; text-align:left;">
+            {% for project in text['bio'] %}
+            <li>{{ project | safe}}</li>
+            <li>&nbsp;</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="row">
+        <h2>Responsibilities</h2>
+        <ul style="list-style-type:none; text-align:left;">
+            {% for project in text['responsibilities'] %}
+            <li>{{ project }}</li>
+            <li>&nbsp;</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="row">
+        <h2>Achievement's</h2>
+        <ul style="list-style-type:none; text-align:left;">
+            {% for project in text['achievements'] %}
+            <li>{{ project }}</li>
+            <li>&nbsp;</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% elif text['type'] == "education" or text['type'] == "certification" %}
+    <div class="row">
+        <ul style="list-style-type:none; text-align:left;float:left; padding-left:0px;">
+            <li><h3>{{ text['qualification'] }}</h3></li>
+            <li><h3>{{ text['school'] }}</h3></li>
+            <li><h4>{{ text['dates'] }}</h4></li>
+            <li>&nbsp;</li>
+            <li><h5>{{ text['short_bio'] }}</h5></li>
+        </ul>
+    </div>
+    {% if 'bio' in text %}
+    <hr/>
+    <div class="row">
+        <h2>Course</h2>
+        <ul style="list-style-type:none; text-align:left;">
+            {% for project in text['bio'] %}
+            {% if '-' not in project[1] %}
+            <li>&nbsp;</li>
+            {% endif %}
+            <li>{{ project }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+    {% elif text['type'] == "blog" %}
+
+    <div class="row">
+        <ul style="list-style-type:none; text-align:left;float:left; padding-left:0px;">
+            <li><h3>{{ text['title'] }}</h3></li>
+            <li><h5><a href="{{ text['link'] }}">{{ text['link'] }} </a></h5></li>
+            </li>
+            <li>&nbsp;</li>
+            <li><h5>{{ text['short_bio'] }}</h5></li>
+        </ul>
+    </div>
+    <hr/>
+    {% endif %}
+    {% endif %}
+    <hr/>
+</div>
+{% endblock %}

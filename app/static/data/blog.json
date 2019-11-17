@@ -9,6 +9,16 @@
     "short_bio": "A python script that scrapes WWF's list of endangered animals and then converts the images to the pixel count of the remaining population",
     "bio": ""
   },
+    {
+    "id": "unicornPhat",
+    "type":"blog",
+    "title": "AWS unicornPhat",
+    "link": "http://cclarkson.co.uk/unicornPhat",
+    "github": "",
+    "img_src": "",
+    "short_bio": "A flask app built to host my online CV and post blog posts about development tasks i have completed.",
+    "bio": ""
+  },
   {
     "id": "Personal_Blog",
     "type":"blog",
@@ -24,8 +34,8 @@
     "type":"blog",
     "title": "Official Danc",
     "link": "http://officialdanc.co.uk",
-    "github": "",
-    "img_src": "",
+    "github": "https://github.com/Sqidge/officialdanc_flask",
+    "img_src": "/static/img/officialdan/officialdanc_fullpage.png",
     "short_bio": "A flask app built to create a online presence for officialdanc",
     "bio": ""
   }

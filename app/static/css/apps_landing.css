@@ -17,18 +17,26 @@
     padding-right:1vw;
     padding-left:1vw;
     margin-bottom:2vh;
-
+    min-height:425px;
 
 }
 .app {
-   background-color:lightgrey;
+   border: 5px lightgrey solid;
    padding:0.5vw;
    border-radius:10px;
+   min-height:100%;
+}
+.app p{
+float:left;}
+.app form {
+    float:left;
+   bottom: 10px;
+   position: absolute;
+   padding-left: 38%;
 }
 .app img{
     min-width:100%;
     min-height:100px;
-    border:1px solid black;
 }
 
 .app h1{
