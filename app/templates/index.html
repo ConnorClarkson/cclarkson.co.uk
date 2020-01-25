@@ -2,6 +2,7 @@
 {% block head_css %}
 {{ super()}}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+<link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
 <style>
       h3 {width:100%;text-align:left;}
 
@@ -10,7 +11,17 @@
 
 {% block content %}
 <div class="container">
-    <h3>Index</h3>
+    <div class="row">
+        <div class="col">
+
+            <img src="{{ url_for('static', filename='img/profile.png') }}" width="400px" height="400px"/>
+
+             <h1 style="font-family: 'Source Code Pro', monospace; text-align: center;">London based Software Engineer</h1>
+            <h5 style="font-family: 'Source Code Pro', monospace; text-align: center;">Technology stack: Python, Flask, Linux, Kafka, Elasticsearch, Kibana, Hadoop, Spark, SAS, Pandas, Bash
+</h5>
+        </div>
+        </div>
+    </div>
 
 </div>
 {% endblock %}

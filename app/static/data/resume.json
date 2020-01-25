@@ -1,5 +1,13 @@
 {
   "2019": [
+    {
+      "id": "inside_sherpa__JP_morgan",
+      "dates": "November 2019",
+      "qualification": "Software Engineering Virtual Experience",
+      "school": "Inside Sherpa & JP Morgan Chase & Co",
+      "type": "certification",
+      "short_bio": "An online course to dive into JPMorgan Chase frameworks and apply your technical skills to a hypothetical request from the firm’s trading floor to analyze and visualize data in a new way."
+    },
      {
         "id": "aws_essentials",
         "dates": "January 2019",
@@ -16,7 +24,7 @@
       "qualification": "Introduction to Cyber Security",
       "school": "Open University",
       "type": "education",
-      "short_bio": "An open University course to understand the fundamentals of cyber security and how to protect against online threats.a"
+      "short_bio": "An open University course to understand the fundamentals of cyber security and how to protect against online threats."
     }
   ],
   "2017": [
@@ -42,7 +50,7 @@
         "I have been involved in various client-side software engineering projects through my employment. I completed a bespoke training academy covering Object-Oriented design, Java Enterprise, Testing processes, and software lifecycles. Which resulted in multiple professional certifications including Oracle Certified Associate - Java SE 7 Programmer",
         "<b>Project 1 </b> - Part of a small customer facing development team developing a bespoke data preparation and cleansing tool to prepare the customers for a data migration. Built using VBA, SQL and PowerShell. The project included working with 3rd party suppliers to implement process and backend services and directly with the customer to deliver and train users on how to operate the tool. The tool helped to successfully migrate ~50-60TB of user data.",
         "<b>Project 2 </b> - Co-Leading a team of 4 software developers using agile methodologies to deliver and support a bespoke mission critical data analysis framework which turns a daily stream of ~1TB of raw data into rich valuable data through manipulation and enrichments for our analysts. The framework consists of python micro-services, Object orientated component’s, web services using Flask, Behaviour driven development, Unit and integration testing, and version control. I use Jira to plan sprints, confluence to document code and record retrospectives. \n<br/> <b> Key technologies: </b>Linux, Python, Elasticsearch, Kibana, Kafka",
-        "<b>Project 3 </b> - As part of the Data Engineering, working closely with stakeholders to understand  their data and turn it into actionable decisions. Day to day tasks include working with a range of data formats, building reusable data pipelines to transform and standardise data into a conformed schema, data exploration for data quality issues and schema discovery. As well as building a tool to monitor data landing, a script to check the integrity of Parquet files in transit, and small web apps to help analysts to quickly complete mundane tasks quickly.\n<br /> <b>Key technologies:  </b>Linux, Python, Hadoop, Spark, SAS, Flask, Pandas, Bash\n"
+        "<b>Project 3 </b> - As part of the Data Engineering team, working closely with stakeholders to understand their data and turn it into actionable decisions. Day to day tasks include working with a range of data formats, building reusable data pipelines to transform and standardise data into a conformed schema, data exploration for data quality issues and schema discovery. As well as building a tool to monitor data landing, a script to check the integrity of Parquet files in transit, building small web apps to help analysts to complete mundane tasks quickly.\n<br /> <b>Key technologies:  </b>Linux, Python, Hadoop, Spark, SAS, Flask, Pandas, Bash\n"
 
       ],
       "responsibilities": [

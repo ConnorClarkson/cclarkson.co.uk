@@ -1,0 +1,59 @@
+{% extends "base/base.html" %}
+{% block head_css %}
+   {{ super()}}
+   <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <style>
+    .form_outer {
+           border: 5px lightgrey solid;
+           padding:0.5vw;
+           border-radius:10px;
+           min-height:100%;
+          }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <h1>AWS UnicornPhat Colour Changer </h1>
+<br/>
+    <div class="row">
+        <div class="col-3 offset-3 form_outer">
+            <form action="/unicornPhat" method="POST">
+                <h3>Change colour on unicornPhat</h3>
+                <label for="color_picker">Select Colour: </label>
+                {% if color %}
+                    <input class="jscolor form-control" id="color_picker" name="color_picker" value="{{color}}" /><br>
+                {% else %}
+                    <input class="jscolor form-control" id="color_picker" name="color_picker"/><br>
+                {% endif %}
+                <label for="color_picker">Enter Password: </label>
+                <input class="form-control" type="password" id="password" name="password" required/><br>
+                <button type="submit" class="btn btn-primary">Submit Colour</button>
+
+            </form>
+
+
+            {% if returned_value['current_colour'] %}
+                {{ returned_value['current_colour'] }}
+            {% endif %}
+            {% if returned_value['error'] %}
+            <br/>
+            <div class="alert alert-danger" role="alert">
+                <h5>ERROR: {{returned_value['error']}}</h5>
+            </div>
+            {% endif %}
+
+        </div>
+        <div class="col-3" style="text-align:left;">
+            <h5>This is a personal app!</h5>
+            <h5>A password is required to submit queries!</h5>
+            <p>This form submits a query to AWS Lamda and changes the unicornPhat attached to a Raspberry PI Zero</p>
+        </div>
+    </div>
+
+{% endblock %}
+
+
+{% block end_js %}
+    <script src="{{url_for('static',filename='js/jscolor.js')}}"></script>
+
+{% endblock %}

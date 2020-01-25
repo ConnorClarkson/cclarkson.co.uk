@@ -26,7 +26,7 @@
         <h2>Experience</h2>
         <ul style="list-style-type:none; text-align:left;">
             {% for project in text['bio'] %}
-            <li>{{ project | safe}}</li>
+            <li><p>{{ project | safe}}</p></li>
             <li>&nbsp;</li>
             {% endfor %}
         </ul>
@@ -36,8 +36,8 @@
         <h2>Responsibilities</h2>
         <ul style="list-style-type:none; text-align:left;">
             {% for project in text['responsibilities'] %}
-            <li>{{ project }}</li>
-            <li>&nbsp;</li>
+            <li><p>{{ project }}</p></li>
+<!--            <li>&nbsp;</li>-->
             {% endfor %}
         </ul>
     </div>
@@ -46,8 +46,8 @@
         <h2>Achievement's</h2>
         <ul style="list-style-type:none; text-align:left;">
             {% for project in text['achievements'] %}
-            <li>{{ project }}</li>
-            <li>&nbsp;</li>
+            <li><p>{{ project }}</p></li>
+<!--            <li>&nbsp;</li>-->
             {% endfor %}
         </ul>
     </div>
@@ -57,7 +57,7 @@
             <li><h3>{{ text['qualification'] }}</h3></li>
             <li><h3>{{ text['school'] }}</h3></li>
             <li><h4>{{ text['dates'] }}</h4></li>
-            <li>&nbsp;</li>
+<!--            <li>&nbsp;</li>-->
             <li><h5>{{ text['short_bio'] }}</h5></li>
         </ul>
     </div>
@@ -70,7 +70,7 @@
             {% if '-' not in project[1] %}
             <li>&nbsp;</li>
             {% endif %}
-            <li>{{ project }}</li>
+            <li><p>{{ project }}</p></li>
             {% endfor %}
         </ul>
     </div>

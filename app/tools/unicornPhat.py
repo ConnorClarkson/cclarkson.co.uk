@@ -30,7 +30,6 @@ def main(password, value=None):
 
 
     def send_new_colour(colour):
-
         try:
             rgb = tuple(int(colour[i:i + 2], 16) for i in (0, 2, 4))
 
@@ -44,14 +43,13 @@ def main(password, value=None):
             return get_current_color()
         except Exception as e:
             print(e)
+
     if not password:
         return None
 
     if password.hexdigest() == aws_config['app_pass']:
-
         if not value:
             try:
-
                 value = get_current_color()
             except botocore.exceptions.EndpointConnectionError:
                 return {"error": "Unable to connect to IOT device"}

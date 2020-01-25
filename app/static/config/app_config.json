@@ -1,17 +1,17 @@
 [
     {
-        "Tool_Name": "unicornHat",
-        "Title": "unicornHat Colour Picker",
+        "Tool_Name": "unicornPhat",
+        "Title": "unicornPhat Colour Picker",
         "Img_URL": "img/apps/unicornPhat.jpg",
-        "Tool_Desc": "A web UI for changing the unicornHat on a raspberry pi Zero, using aws lambda and aws IOT",
+        "Tool_Desc": "A web UI for changing the unicornHat on a raspberry pi Zero, using aws lambda and aws IOT.",
         "Route": "/unicornPhat",
-        "Template": "unicornHat.html"
+        "Template": "unicornPhat.html"
     },
     {
         "Tool_Name": "Extinction",
         "Title": "Population of Endangered animals displayed as pixelated version ",
         "Img_URL": "img/apps/extinction.jpg",
-        "Tool_Desc": "A python script that scrapes WWF's list of endangered animals and then converts the images to the pixel count of the remaining population",
+        "Tool_Desc": "A python script that scrapes WWF's list of endangered animals and then converts the images to the pixel count of the remaining population.",
         "Route": "/Extinction",
         "Template": "extinction.html"
     }
