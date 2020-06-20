@@ -4,6 +4,14 @@ footer {
     background-color:white;
     padding-top: 2vh;
 }
+#footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color:white;
+    min-height:2.5rem;
+}
+
 .row #social-links {
     text-align: center;
     display:inline-block;
@@ -20,7 +28,7 @@ footer {
 a > i {
     padding-left:33.3%;
 }
-#social_links > i{
+i{
     color:black;
     text-decoration:none;
 }

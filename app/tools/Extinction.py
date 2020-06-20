@@ -1,6 +1,6 @@
 import json
 import os
-from app import settings
+from flask import current_app
 import ast
 
 def capitalise_text(text):
@@ -16,7 +16,7 @@ def capitalise_text(text):
     return str
 def main(password=None, value=None):
     animallist = []
-    with open(os.path.join(settings.APP_STATIC, 'img/WWF/list.csv'))as f:
+    with open(os.path.join(current_app.config['APPS_STATIC'], 'WWF/list.csv'))as f:
         for line in f:
             row = ast.literal_eval(line)
             for elem in range(3, len(row)):

@@ -1,0 +1,55 @@
+{% extends "login_base.html" %}
+{% block head_css %}
+{{super()}}
+{% endblock %}
+{% block content %}
+<div class="container-fluid">
+    <div class="row no-gutter">
+        <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
+        <div class="col-md-8 col-lg-6">
+            <div class="login d-flex align-items-center py-5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-9 col-lg-8 mx-auto">
+                            <h3 class="login-heading mb-4">Log in to continue.</h3>
+                            {% for category, message in get_flashed_messages(with_categories=True) %}
+                            <div class="alert alert-{{category}}">{{message}}</div>
+                            {% endfor %}
+                            <form action="" method="post" novalidate>
+                                {{ form.hidden_tag() }}
+                                <div class="form-label-group">
+                                    {{ form.username}}
+                                    {{ form.username.label }}
+                                </div>
+                                {% if type =='Login' %}
+                                <div class="form-label-group">
+                                    {{ form.password }}
+                                    {{ form.password.label }}
+                                </div>
+                                {% elif type =='Change' %}
+                                <div class="form-label-group">
+                                    {{ form.prev_password }}
+                                    {{ form.prev_password.label }}
+                                </div>
+                                <div class="form-label-group">
+                                    {{ form.new_password }}
+                                    {{ form.new_password.label }}
+                                </div>
+                                <div class="form-label-group">
+                                    {{ form.confirm_password }}
+                                    {{ form.confirm_password.label }}
+                                </div>
+                                {% endif %}
+
+
+                                <p>{{ form.submit() }}</p>
+                                <p><a href="/" class="btn btn-lg btn-dark btn-block btn-login text-uppercase font-weight-bold mb-2">Return</a></p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends "login_base.html" %}
+{% block head_css %}
+{{super()}}
+{% endblock %}
+{% block content %}
+{% include 'admin_nav.html' %}
+<div class="container-fluid">
+    <div class="row" style="padding-top:65px;">
+        <div class="col-6 ">
+            <div class="card">
+                <h3 class="card-header">
+                    Events
+                </h3>
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Date</th>
+                            <th scope="col">Event</th>
+                            <th scope="col">Link</th>
+                            <th scope="col">On The Door?</th>
+                            <th scope="col">Sold Out?</th>
+                            <th scope="col">Edit</th>
+                        </tr>
+                        </thead>
+                        {% if events %}
+                        <tbody>
+                        {% for ev in events | sort(attribute='date') %}
+
+                        <tr>
+                            <th scope="row">{{ev['timestamp']|datetimeformat}}</th>
+                            <td scope="row">{{ev['venue']}}</td>
+                            <td>{{ev['link']}}</td>
+                            <td>{{ev['on_the_door']}}</td>
+                            <td>{{ev['sold_out']}}</td>
+                            <td><a href="{{url_for('auth.edit_event', id=ev.id)}}" class="btn btn-dark">Edit</a></td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                        {% endif %}
+                    </table>
+                    {% for category, message in get_flashed_messages(with_categories=True) %}
+                    <div class="alert alert-{{category}}">{{message}}</div>
+                    {% endfor %}
+                    <a href="/auth/new_event" class="btn btn-dark">New Event</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="card">
+                <h3 class="card-header">
+                    Editable Content
+                </h3>
+                <div class="card-body">
+                    <a href="/auth/edits" class="btn btn-dark">Edit Content here.</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

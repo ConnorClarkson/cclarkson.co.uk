@@ -16,10 +16,11 @@
     </button>
     <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-item nav-link active" href="{{ url_for('index', _method='GET' )}}">Home</a>
-        <a class="nav-item nav-link active" href="{{ url_for('blog', _method='GET' )}}">Blog</a>
-        <a class="nav-item nav-link" href="{{ url_for('cv', _method='GET' )}}">CV</a>
-        <a class="nav-item nav-link" href="{{ url_for('apps', _method='GET' )}}">Apps</a>
+        <a class="nav-item nav-link active" href="{{ url_for('main.index', _method='GET' )}}">Home</a>
+        <a class="nav-item nav-link active" href="{{ url_for('blog_page.blog', _method='GET' )}}">Blog</a>
+        <a class="nav-item nav-link" href="{{ url_for('cv_page.cv', _method='GET' )}}">CV</a>
+        <a class="nav-item nav-link" href="{{ url_for('apps_page.apps_landing', _method='GET' )}}">Apps</a>
+        <a class="nav-item nav-link" href="{{ url_for('websites.showcase', _method='GET' )}}">Websites</a>
       </div>
     </div>
   </nav>

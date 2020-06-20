@@ -4,15 +4,15 @@ import os
 import boto3
 import botocore
 
-from app import settings
+from flask import current_app
 import hashlib
 
-with open(os.path.join(settings.APP_STATIC, 'KEYS/aws.json'))as f:
+with open(os.path.join(current_app.config['APP_STATIC'], 'KEYS/aws.json'))as f:
     aws_config = json.load(f)
 
 client = boto3.client('lambda', region_name='eu-west-2',
-                      aws_access_key_id=aws_config['aws_access_key_id'],
-                      aws_secret_access_key=aws_config['aws_secret_access_key'])
+                      aws_access_key_id=current_app.config['AWS_ACCESS_KEY_ID'],
+                      aws_secret_access_key=current_app.config['AWS_SECRET_ACCESS_KEY'])
 
 
 def main(password, value=None):

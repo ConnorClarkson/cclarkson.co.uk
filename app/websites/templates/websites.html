@@ -1,0 +1,26 @@
+{% extends "base/base.html" %}
+{% block head_css %}
+{{ super()}}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+<style>
+      h3 {width:100%;text-align:left;}
+
+
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-4" style="background-color:aliceblue;min-height:40vh;">
+            1
+        </div>
+        <div class="col-4"  style="background-color:aliceblue;min-height:40vh;">
+            1
+        </div>
+        <div class="col-4"  style="background-color:aliceblue;min-height:40vh;">
+            1
+        </div>
+    </div>
+</div>
+{% endblock %}
