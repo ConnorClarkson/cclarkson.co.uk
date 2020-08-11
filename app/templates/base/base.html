@@ -2,41 +2,50 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>webapp</title>
+    <title>cclarkson</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-162902777-2"></script>
+    <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', 'UA-162902777-2');
+
+    </script>
     {% block head_css %}
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap/bootstrap.min.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/fontawesome/all.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar/nav.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/footer/footer.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/fontawesome/all.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar/nav.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/footer/footer.css') }}">
     {% endblock %}
 
 </head>
 <body>
 
-<div class="content-container" >
+<div class="content-container">
     <div id="navbar">
-     <!--
-    Nav Bar
-    -->
-    {% include 'base/navbar.html' %}
+        <!--
+       Nav Bar
+       -->
+        {% include 'base/navbar.html' %}
     </div>
 
-     <div id="content">
-    <!--
-    Content
-    -->
+    <div id="content">
+        <!--
+        Content
+        -->
 
-    {% block content %}{% endblock %}
+        {% block content %}{% endblock %}
 
 
     </div>
 
     <div id="footer">
-      <!--
-        Footer
-        -->
+        <!--
+          Footer
+          -->
         {% include 'base/footer.html' %}
     </div>
 </div>

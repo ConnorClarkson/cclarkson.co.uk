@@ -1,0 +1,35 @@
+{% extends "base/base.html" %}
+{% block head_css %}
+   {{ super()}}
+   <link rel="stylesheet" href="{{ url_for('apps_page.static', filename='css/apps_landing.css') }}">
+
+{% endblock %}
+
+{% block content %}
+{% if config %}
+   <div id="apps_landing">
+      <div  class="row justify-content-md-center"  id="apps_landing_row">
+         {% for app_name in app_config %}
+               {{build_icon(app_name) }}
+
+         {% endfor %}
+
+      </div>
+   </div>
+{% endif %}
+{% endblock %}
+
+
+{% macro build_icon(app_config) %}
+<div class="col-md-3 app_outer">
+   <div class="app">
+      <img alt="img_link" src="{{url_for('static',filename=app_config['Img_URL'])}}" height="200px"/>
+      <h1>{{app_config['Tool_Name']}}</h1>
+      <p>{{app_config['Tool_Desc']}}</p>
+      <form action="{{ url_for('apps_page.' + app_config['Route']) }}">
+         <input class="btn btn-dark" type="submit" value="Go" />
+      </form>
+   </div>
+</div>
+{% endmacro %}
+

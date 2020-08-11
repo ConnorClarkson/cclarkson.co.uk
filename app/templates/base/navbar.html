@@ -1,10 +1,13 @@
  {% block head_css %}
   <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
  {% endblock %}
 
 {% block navbar %}
 <header >
-  <h1 style="font-family: 'Permanent Marker', cursive; text-align: center;">Connor Clarkson</h1>
+  <h1 style="text-align: center;">
+    <a style="text-decoration:none; color:inherit; font-family: 'Permanent Marker', cursive !important;" href="{{ url_for('main.index', _method='GET' )}}">Connor Clarkson</a>
+  </h1>
 <!--  <img id="logo-main" src="{{ url_for('static', filename='img/logo.png') }}" width="300px" height="75px;" alt="Logo Thing main logo">-->
 <!--  <img id="logo-main" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/32877/logo-thing.png" width="200" alt="Logo Thing main logo">-->
   <!-- As a heading -->
@@ -15,10 +18,10 @@
     </button>
     <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-item nav-link active" href="{{ url_for('index', _method='GET' )}}">Home</a>
-        <a class="nav-item nav-link active" href="{{ url_for('blog', _method='GET' )}}">Blog</a>
-        <a class="nav-item nav-link" href="{{ url_for('cv', _method='GET' )}}">CV</a>
-        <a class="nav-item nav-link" href="{{ url_for('apps', _method='GET' )}}">Apps</a>
+        <a class="nav-item nav-link" href="{{ url_for('cv_page.cv', _method='GET' )}}">CV</a>
+        <a class="nav-item nav-link active" href="{{ url_for('blog_page.blog', _method='GET' )}}">Blog</a>
+<!--        <a class="nav-item nav-link" href="{{ url_for('apps_page.apps_landing', _method='GET' )}}">Apps</a>-->
+        <a class="nav-item nav-link" href="{{ url_for('websites.showcase', _method='GET' )}}">Websites</a>
       </div>
     </div>
   </nav>

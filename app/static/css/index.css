@@ -9,7 +9,12 @@ body {
    height:100%;
 }
 
-
+h1,h2,h3,h4,h5{
+font-family: 'Source Code Pro', monospace !important;
+}
+p, a {
+font-family: 'Roboto', sans-serif !important;
+}
 
 .content-container {
   position: relative;
@@ -26,14 +31,5 @@ body {
 #content {
   text-align: center;
   flex: 1;
-  padding-bottom:3rem;
+  padding-bottom:5rem;
 }
-
-#footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    background-color:white;
-    min-height:2.5rem;
-}
-

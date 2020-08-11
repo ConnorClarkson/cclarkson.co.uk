@@ -1,0 +1,35 @@
+<!--<script type="text/javascript" src="loader.js"></script>-->
+    <script src="{{url_for('static',filename='js/loader.js')}}"></script>
+
+<div id="sankey_multiple" style="width: 900px; height: 300px;"></div>
+
+<script type="text/javascript">
+    let csv_Arr = {{csv_file | safe}}
+    google.charts.load("current", {packages:["sankey"]})
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'From');
+        data.addColumn('string', 'To');
+        data.addColumn('number', 'Amount');
+        data.addRows(csv_Arr);
+
+        // Set chart options
+        var options = {
+          width: 1200,
+          height:700,
+          sankey: {
+              node: {
+                interactivity: true, // Allows you to select nodes.
+                labelPadding: 6,     // Horizontal distance between the label and the node.
+                nodePadding: 20,     // Vertical distance between nodes.
+                width: 20,            // Thickness of the node.
+              }
+          }
+        };
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.Sankey(document.getElementById('sankey_multiple'));
+        chart.draw(data, options);
+    }
+</script>

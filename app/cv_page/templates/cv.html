@@ -1,0 +1,59 @@
+{% extends "base/base.html" %}
+{% block head_css %}
+{{ super()}}
+<link rel="stylesheet" href="{{ url_for('cv_page.static', filename='css/cv.css') }}">
+<style>
+      h3 {width:100%;text-align:left;}
+
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h3>Technology Stack</h3>
+    <hr/>
+    <h5 style="font-family: 'Source Code Pro', monospace; text-align: center;">
+        Python, Flask, Linux, Kafka, AWS, CI/CD, Jenkins
+    </h5>
+    <h5 style="font-family: 'Source Code Pro', monospace; text-align: center;">
+        Software Engineering, Data Engineering
+    </h5>
+    <br/>
+    <h3>Experience</h3>
+    <hr/>
+    {% if resume %}
+    {% for year in resume %}
+    <h4 style="text-align:left"> {{year}} </h4>
+    {% for proj in resume[year] %}
+    <ul style="list-style-type: none;">
+        <li><p>{{config['dates']}}</p></li>
+        <li>
+            {% if proj['type'] == 'work' %}
+            <i style="float:left; padding-top:4px;" class="fas fa-lg fa-briefcase"> - &nbsp;</i>
+            <h5 style="text-align:left">{{proj['job_title']}} - {{proj['company']}}</h5>
+
+
+            {% elif proj['type'] == 'education' %}
+            <i style="float:left; padding-top:4px;" class="fas fa-lg fa-graduation-cap"> - &nbsp;</i>
+            <h5 style="text-align:left">{{proj['qualification']}} </h5>
+
+            {% elif proj['type'] == 'certification' %}
+            <i style="float:left; padding-top:4px;" class="fas fa-lg fa-award"> - &nbsp;</i>
+            <h5 style="text-align:left"> {{proj['qualification']}} </h5>
+
+            {% endif %}
+            {% if proj['short_bio'] |string() != "" %}
+            <p style="text-align:left;"> {{ proj['short_bio']}}
+                <br>
+                <a href="{{ url_for('cv_page.cv_extended', cv_id=proj['id']) }}">
+                    Read More..
+                </a></p>
+            {% endif %}
+
+        </li>
+    </ul>
+    {% endfor %}
+    {% endfor %}
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "base/base.html" %}
+{% block head_css %}
+{{ super()}}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+<style>
+      h3 {width:100%;text-align:left;}
+
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h3>Posts</h3>
+    <hr/>
+    <ul style="list-style-type: none;text-align:left;">
+        {% for key in blog %}
+       <li> <h5><u>{{ blog[key]['title'] }}</u></h5></li>
+        <li><a href="{{ blog[key]['link'] }}">{{ blog[key]['link'] }} </a></li>
+        <li>{{ blog[key]['short_bio'] }}</li>
+        <li><a href="{{ url_for('blog_page.blog_extended', post_id=blog[key]['id']) }}" >Read more..</a></li>
+        <li>&nbsp;</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
