@@ -21,7 +21,9 @@
 
 }
 .app {
-   border: 5px lightgrey solid;
+   -webkit-box-shadow: 0px 0px 15px 2px rgba(77,77,77,1);
+-moz-box-shadow: 0px 0px 15px 2px rgba(77,77,77,1);
+box-shadow: 0px 0px 15px 2px rgba(77,77,77,1);
    padding:0.5vw;
    border-radius:10px;
    min-height:100%;

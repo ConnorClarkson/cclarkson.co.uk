@@ -1,7 +1,17 @@
 {
+  "2020": [
+    {
+        "id": "maths_for_science_and_tech",
+        "dates": "May 2020",
+        "qualification": "Introductory level Science, Maths & Technology",
+        "school": "Open University",
+        "type": "certification",
+        "short_bio": "This course will give you a better understanding of how algebra, scientific notation and trigonometry is used in science, and the world around us."
+    }
+  ],
   "2019": [
     {
-      "id": "inside_sherpa__JP_morgan",
+      "id": "inside_sherpa_JP_morgan",
       "dates": "November 2019",
       "qualification": "Software Engineering Virtual Experience",
       "school": "Inside Sherpa & JP Morgan Chase & Co",
@@ -51,14 +61,12 @@
         "<b>Project 1 </b> - Part of a small customer facing development team developing a bespoke data preparation and cleansing tool to prepare the customers for a data migration. Built using VBA, SQL and PowerShell. The project included working with 3rd party suppliers to implement process and backend services and directly with the customer to deliver and train users on how to operate the tool. The tool helped to successfully migrate ~50-60TB of user data.",
         "<b>Project 2 </b> - Co-Leading a team of 4 software developers using agile methodologies to deliver and support a bespoke mission critical data analysis framework which turns a daily stream of ~1TB of raw data into rich valuable data through manipulation and enrichments for our analysts. The framework consists of python micro-services, Object orientated component’s, web services using Flask, Behaviour driven development, Unit and integration testing, and version control. I use Jira to plan sprints, confluence to document code and record retrospectives. \n<br/> <b> Key technologies: </b>Linux, Python, Elasticsearch, Kibana, Kafka",
         "<b>Project 3 </b> - As part of the Data Engineering team, working closely with stakeholders to understand their data and turn it into actionable decisions. Day to day tasks include working with a range of data formats, building reusable data pipelines to transform and standardise data into a conformed schema, data exploration for data quality issues and schema discovery. As well as building a tool to monitor data landing, a script to check the integrity of Parquet files in transit, building small web apps to help analysts to complete mundane tasks quickly.\n<br /> <b>Key technologies:  </b>Linux, Python, Hadoop, Spark, SAS, Flask, Pandas, Bash\n"
-
       ],
       "responsibilities": [
         "Communicate with Management, Stakeholders, and end users directly to understand requirements, issues and steps forward.",
         "Working with agile methodologies to deliver iterative project updates",
         "Co-leading a team to deliver software on time.",
         "Design, Develop, Test, and Deploy code to a high standard"
-
       ],
       "achievements": [
         "Delivering an mission critical bespoke engineering projects",
@@ -67,7 +75,6 @@
         "Leading and mentoring Interns and junior staff"
       ],
       "type": "work"
-
     },
     {
       "id": "java_se_7",
@@ -100,14 +107,12 @@
         "Provide extra help for the IT team",
         "Deploy PC images for the start of term",
         "Provide Technical support to the lectures"
-
       ],
       "achievements": [
         "Developing a good reputation with lectures and the IT team",
         "Understanding business infrastructure and deployment on a large scale"
       ],
       "type": "work"
-
     },
     {
       "id": "university",
@@ -137,7 +142,6 @@
         "\t- Commercial Games Development - 71%",
         "\t- Games Programming and Advance Graphics - 86%"]
     }
-
   ],
   "2015": [
     {
@@ -152,14 +156,12 @@
       ],
       "responsibilities": [
         "Develop research software for an NHS department"
-
       ],
       "achievements": [
         "Working with the NHS to develop/further understand the Varian system",
         "Provide a platform for the NHS team to further develop"
       ],
       "type": "work"
-
     }
   ],
   "2014": [
@@ -181,10 +183,8 @@
         "Created a working prototype",
         "Understanding Virtual Reality technology",
         "Working to deadlines"
-
       ],
       "type": "work"
-
     }
   ],
   "2012": [
@@ -208,8 +208,6 @@
         "Developed skills outside of my comfort zone"
       ],
       "type": "work"
-
     }
   ]
-
 }

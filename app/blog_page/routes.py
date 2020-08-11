@@ -4,8 +4,8 @@ import os
 
 from flask import current_app
 from flask import render_template
+
 from app.blog_page import bp
-from app.tools import helpers
 
 try:
     with open(os.path.join(current_app.config['APP_STATIC'], 'data/blog.json')) as f:
@@ -24,5 +24,5 @@ def blog():
 
 @bp.route('/blog/<string:post_id>')
 def blog_extended(post_id):
-    item = helpers.get_value_from_key('id', post_id, blog_json)
+    item = blog_json[post_id]
     return render_template('blog_posts.html', text=item)
