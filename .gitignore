@@ -1,6 +1,11 @@
 .idea/
 venv/
-.pem
-.jpg
+*.pem
+secret_key
 KEYS/
-/FlaskApp.pem
+.DS_Store
+app/__pycache__/
+*.db
+logs/
+__pycache__/
+.flaskenv
