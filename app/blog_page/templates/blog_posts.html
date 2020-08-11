@@ -5,6 +5,7 @@
 <style>
       h2 {width:100%;text-align:left;}
 
+
 </style>
 {% endblock %}
 
@@ -23,7 +24,11 @@
     </div>
     <hr/>
 
-
+    {% for section in text['bio'] %}
+    <div class="row" style="text-align:left">
+        {{section | safe}}
+    </div>
+    {% endfor %}
 
     {% endif %}
     <hr/>

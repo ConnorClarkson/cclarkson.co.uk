@@ -1,0 +1,28 @@
+  h3 {width:100%;text-align:left;}
+        .website_img {
+
+            min-height:45vh;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: top;
+        }
+
+        .website_app:hover .website_img{
+            opacity:0.2;
+        }
+        .website_app:hover h1{
+            opacity:1;
+            display: block;
+
+        }
+        .website_title {
+          margin: 0;
+          position: absolute;
+          top: 50%;
+          -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+          margin:auto;
+          width:100%;
+          display:none;
+          padding-right:2vw;
+        }

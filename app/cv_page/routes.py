@@ -4,11 +4,12 @@ import os
 
 from flask import current_app
 from flask import render_template
+
 from app.cv_page import bp
 from app.tools import helpers
 
 try:
-    with open(os.path.join(current_app.config['APP_STATIC'], 'data/resume.json'))as f:
+    with open(os.path.join(bp.static_folder, 'data/resume.json'))as f:
         resume = json.load(f)
 except Exception as e:
     resume = None

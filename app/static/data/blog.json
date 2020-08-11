@@ -1,42 +1,51 @@
-[
-  {
-    "id": "Extinction",
-    "type":"blog",
-    "title": "Pixel Extinction",
-    "link": "http://cclarkson.co.uk/Extinction",
+{
+  "KYLLER": {
+    "id": "KYLLER",
+    "type": "website",
+    "title": "kyllerbeats.co.uk",
+    "link": "https://kyllerbeats.co.uk",
     "github": "",
-    "img_src": "",
-    "short_bio": "A python script that scrapes WWF's list of endangered animals and then converts the images to the pixel count of the remaining population",
-    "bio": ""
+    "img_src": "img/FEEL_ALIVE.png",
+    "short_bio": "A flask app built to create a online presence for KYLLER",
+    "bio": [
+      "<h5>Overview:</h5>",
+      "KYLLER needed a website to promote his music. This flask backed websites provides an admin portal for KYLLER to update the links to his latest spotify track and the ability to update social media links.",
+      "Built using AWS, this website is hosted within a EC2 instance. Using nginx to provide a reverse proxy to direct traffic to the KYLLER flask app. Cognito is used for user authentication to access the admin page.",
+      "<br>",
+      "<h5>Technologies:</h5>",
+      "<ul><li>Python3</li><li>Flask</li><li>AWS EC2</li><li>AWS Cognito</li><li>AWS Route53</li><li>nginx</li><li>Git</li></ul>"
+    ]
   },
-    {
-    "id": "unicornPhat",
-    "type":"blog",
-    "title": "AWS unicornPhat",
-    "link": "http://cclarkson.co.uk/unicornPhat",
+  "cclarkson": {
+    "id": "cclarkson",
+    "type": "website",
+    "title": "cclarkson.co.uk",
+    "link": "https://cclarkson.co.uk",
     "github": "",
-    "img_src": "",
+    "img_src": "img/cclarkson.png",
     "short_bio": "A flask app built to host my online CV and post blog posts about development tasks i have completed.",
-    "bio": ""
+    "bio": [
+      "<h5>Overview:</h5>",
+      "As a developer I wanted a website to showcase my skills and projects that I have completed. I decided to create this website as a way to write about technologies, projects, apps, and websites that I may create over time.",
+      "<br>",
+      "<h5>Technologies:</h5>",
+      "<ul><li>Python3</li><li>Flask</li><li>AWS EC2</li><li>AWS Route53</li><li>nginx</li><li>Git</li></ul>"
+    ]
   },
-  {
-    "id": "Personal_Blog",
-    "type":"blog",
-    "title": "Personal Blog",
-    "link": "http://cclarkson.co.uk",
-    "github": "",
-    "img_src": "",
-    "short_bio": "A flask app built to host my online CV and post blog posts about development tasks i have completed.",
-    "bio": ""
-  },
-  {
-    "id": "official_danc",
-    "type":"blog",
+  "officialdanc": {
+    "id": "officialdanc",
+    "type": "website",
     "title": "Official Danc",
-    "link": "http://officialdanc.co.uk",
-    "github": "https://github.com/Sqidge/officialdanc_flask",
-    "img_src": "/static/img/officialdan/officialdanc_fullpage.png",
+    "link": "https://officialdanc.co.uk",
+    "img_src": "img/officialdanc.jpg",
     "short_bio": "A flask app built to create a online presence for officialdanc",
-    "bio": ""
+    "bio": [
+      "<h5>Overview:</h5>",
+      "Officialdanc needed a website to promote his music and a place for his listeners to be able to purchase tickets. This flask backed websites provides an admin portal for Officialdanc to add events to his website, update the links to his soundcloud/spotify and social media links.",
+      "Built using AWS, this website is hosted within a EC2 instance. Using nginx to provide a reverse proxy to direct traffic to the Officialdanc flask app. DynamoDB is used to store past and upcoming events. Cognito is used for user authentication to access the admin page.",
+      "<br>",
+      "<h5>Technologies:</h5>",
+      "<ul><li>Python3</li><li>Flask</li><li>AWS EC2</li><li>AWS Cognito</li><li>AWS DynamoDB</li><li>AWS Route53</li><li>nginx</li><li>Git</li></ul>"
+    ]
   }
-]
+}
