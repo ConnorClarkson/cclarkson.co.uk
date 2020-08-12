@@ -3,15 +3,10 @@ header #logo-main {
   margin: auto;
   margin-bottom: 0px;
 }
-
-#navbar-primary.navbar-collapse {
-  width: 100%;
-  text-align: center;
+.list-group-item {
+    border:none !important;
 }
-.navbar {
-    padding:0;
-}
-.navbar-nav > a {
+.list-group-item > a {
   display: inline-block;
   float: none;
   padding-left: 30px;
@@ -20,7 +15,7 @@ header #logo-main {
   margin-bottom:5px;
 
 }
-.navbar-nav a:hover {
+.list-group-item a:hover {
   margin-bottom:0px;
   border-bottom: 5px solid #000000;
 }
