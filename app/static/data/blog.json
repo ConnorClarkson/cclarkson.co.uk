@@ -37,7 +37,7 @@
     "type": "website",
     "title": "Official Danc",
     "link": "https://officialdanc.co.uk",
-    "img_src": "img/officialdanc.jpg",
+    "img_src": "img/officialdanc.png",
     "short_bio": "A flask app built to create a online presence for officialdanc",
     "bio": [
       "<h5>Overview:</h5>",

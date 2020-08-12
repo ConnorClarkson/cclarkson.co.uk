@@ -17,8 +17,9 @@
 
 
 {% macro build_website_icon(website) %}
-<div class="col-md-4 website_app" onclick="location.href='/blog/{{website['id']}}'" style="cursor:pointer">
+<div class="col-lg-4 col-md-12 website_app" onclick="location.href='/blog/{{website['id']}}'" style="cursor:pointer">
     <h1 class="website_title">{{website['id']}} <span class="fa fa-external-link-alt"></span></h1>
-    <div class="website_img" style="background-image:url('{{url_for('websites.static',filename=website['img_src'])}}');"></div>
+    <div class="website_img" style="background-image:url('{{url_for('websites.static',filename=website['img_src'])}}');background-repeat: no-repeat;
+  background-size: 100%; background-position: center"></div>
 </div>
 {% endmacro %}
