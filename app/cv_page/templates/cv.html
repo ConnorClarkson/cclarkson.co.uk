@@ -31,15 +31,16 @@
                 <h3 style="text-align:left"> Current Role </h3>
                 <ul style="list-style-type: none;">
                     <li>
-                    <i style="float:left; padding-top:4px;" class="fas fa-lg fa-briefcase"> - &nbsp;</i>
-                    <h5 style="text-align:left">{{proj['job_title']}} - {{proj['company']}}</h5>
-                     {% if proj['short_bio'] |string() != "" %}
-                        <p style="text-align:left;"> {{ proj['short_bio']}}
-                            <br>
-                            <a href="{{ url_for('cv_page.cv_extended', cv_id=proj['id']) }}">
-                                Read More..
-                            </a></p>
-                    {% endif %}
+                        <h5 style="text-align: left">{{proj['dates']}}</h5>
+                        <i style="float:left; padding-top:4px;" class="fas fa-lg fa-briefcase"> - &nbsp;</i>
+                        <h5 style="text-align:left">{{proj['job_title']}} - {{proj['company']}}</h5>
+                         {% if proj['short_bio'] |string() != "" %}
+                            <p style="text-align:left;"> {{ proj['short_bio']}}
+                                <br>
+                                <a href="{{ url_for('cv_page.cv_extended', cv_id=proj['id']) }}">
+                                    Read More..
+                                </a></p>
+                        {% endif %}
                     </li>
                 </ul>
             {% endif %}
