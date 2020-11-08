@@ -1,28 +1,32 @@
- {% block head_css %}
-  <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
- <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
- {% endblock %}
+{% block head_css %}
+<link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
+{% endblock %}
 
 {% block navbar %}
-<header >
-  <h1 style="text-align: center;">
-    <a style="text-decoration:none; color:inherit; font-family: 'Permanent Marker', cursive !important;" href="{{ url_for('main.index', _method='GET' )}}">Connor Clarkson</a>
-  </h1>
-  <ul class="list-group list-group-horizontal justify-content-center">
-  <li class="list-group-item"><a class="nav-item nav-link" href="{{ url_for('cv_page.cv', _method='GET' )}}">CV</a></li>
-  <li class="list-group-item"><a class="nav-item nav-link active" href="{{ url_for('blog_page.blog', _method='GET' )}}">Blog</a></li>
-  <li class="list-group-item"><a class="nav-item nav-link" href="{{ url_for('websites.showcase', _method='GET' )}}">Websites</a></li>
-</ul>
-  <nav class="navbar navbar-expand-lg " id="navbar-primary">
-    <div class="justify-content-center" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
+<header>
+    <h1 style="text-align: center;">
+        <a href="{{ url_for('main.index', _method='GET' )}}"
+           style="text-decoration:none; color:inherit; font-family: 'Permanent Marker', cursive !important;">Connor Clarkson</a>
+    </h1>
+    <ul class="list-group list-group-horizontal justify-content-center">
+        <li class="list-group-item"><a class="nav-item nav-link"
+                                       href="{{ url_for('cv_page.cv', _method='GET' )}}">CV</a></li>
+        <li class="list-group-item"><a class="nav-item nav-link active"
+                                       href="{{ url_for('blog_page.blog', _method='GET' )}}">Blog</a></li>
+        <li class="list-group-item"><a class="nav-item nav-link"
+                                       href="{{ url_for('websites.showcase', _method='GET' )}}">Websites</a></li>
+    </ul>
+    <nav class="navbar navbar-expand-lg " id="navbar-primary">
+        <div class="justify-content-center" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
 
 
-<!--        <a class="nav-item nav-link" href="{{ url_for('apps_page.apps_landing', _method='GET' )}}">Apps</a>-->
+                <!--        <a class="nav-item nav-link" href="{{ url_for('apps_page.apps_landing', _method='GET' )}}">Apps</a>-->
 
-      </div>
-    </div>
-  </nav>
+            </div>
+        </div>
+    </nav>
 
 </header><!-- header role="banner" -->
 

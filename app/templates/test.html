@@ -1,5 +1,5 @@
 <!--<script type="text/javascript" src="loader.js"></script>-->
-    <script src="{{url_for('static',filename='js/loader.js')}}"></script>
+<script src="{{url_for('static',filename='js/loader.js')}}"></script>
 
 <div id="sankey_multiple" style="width: 900px; height: 300px;"></div>
 
@@ -32,4 +32,5 @@
         var chart = new google.visualization.Sankey(document.getElementById('sankey_multiple'));
         chart.draw(data, options);
     }
+
 </script>

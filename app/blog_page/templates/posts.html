@@ -1,9 +1,10 @@
 {% extends "base/base.html" %}
 {% block head_css %}
 {{ super()}}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+<link href="{{ url_for('static', filename='css/index.css') }}" rel="stylesheet">
 <style>
       h2 {width:100%;text-align:left;}
+
 
 </style>
 {% endblock %}
@@ -37,7 +38,7 @@
         <ul style="list-style-type:none; text-align:left;">
             {% for project in text['achievements'] %}
             <li><p>{{ project }}</p></li>
-<!--            <li>&nbsp;</li>-->
+            <!--            <li>&nbsp;</li>-->
             {% endfor %}
         </ul>
     </div>
@@ -47,7 +48,7 @@
             <li><h3>{{ text['qualification'] }}</h3></li>
             <li><h3>{{ text['school'] }}</h3></li>
             <li><h4>{{ text['dates'] }}</h4></li>
-<!--            <li>&nbsp;</li>-->
+            <!--            <li>&nbsp;</li>-->
             <li><h5>{{ text['short_bio'] }}</h5></li>
         </ul>
     </div>

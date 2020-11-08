@@ -1,12 +1,13 @@
-import json
-import os
-from flask import current_app
 import ast
+import os
+
+from flask import current_app
+
 
 def capitalise_text(text):
-    str=""
+    str = ""
     text = text.replace("_", " ")
-    for word in  text.split(" "):
+    for word in text.split(" "):
         w = word[0].upper() + word[1:]
         if str == "":
             str = w
@@ -14,6 +15,8 @@ def capitalise_text(text):
             str += ' ' + w
 
     return str
+
+
 def main(password=None, value=None):
     animallist = []
     with open(os.path.join(current_app.config['APPS_STATIC'], 'WWF/list.csv'))as f:
