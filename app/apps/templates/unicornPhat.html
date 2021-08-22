@@ -1,6 +1,6 @@
 {% extends "base/base.html" %}
 {% block head_css %}
-   {{ super() }}
+{{ super() }}
 <style>
     .form_outer {
            border: 5px lightgrey solid;
@@ -8,32 +8,33 @@
            border-radius:10px;
            min-height:100%;
           }
-    </style>
+
+</style>
 {% endblock %}
 
 {% block content %}
 <div id="unicornPhat_content">
     <h1>AWS UnicornPhat Colour Changer </h1>
-<br/>
+    <br/>
     <div class="row" style="margin:0px;">
         <div class="col-3 offset-3 form_outer">
             <form action="/unicornPhat" method="POST">
                 <h3>Change colour on unicornPhat</h3>
                 <label for="color_picker">Select Colour: </label>
                 {% if color %}
-                    <input class="jscolor form-control" id="color_picker" name="color_picker" value="{{color}}" /><br>
+                <input class="jscolor form-control" id="color_picker" name="color_picker" value="{{color}}"/><br>
                 {% else %}
-                    <input class="jscolor form-control" id="color_picker" name="color_picker"/><br>
+                <input class="jscolor form-control" id="color_picker" name="color_picker"/><br>
                 {% endif %}
                 <label for="color_picker">Enter Password: </label>
-                <input class="form-control" type="password" id="password" name="password" required/><br>
-                <button type="submit" class="btn btn-primary">Submit Colour</button>
+                <input class="form-control" id="password" name="password" required type="password"/><br>
+                <button class="btn btn-primary" type="submit">Submit Colour</button>
 
             </form>
 
 
             {% if returned_value['current_colour'] %}
-                {{ returned_value['current_colour'] }}
+            {{ returned_value['current_colour'] }}
             {% endif %}
             {% if returned_value['error'] %}
             <br/>
@@ -55,6 +56,6 @@
 
 
 {% block end_js %}
-    <script src="{{url_for('static',filename='js/jscolor.js')}}"></script>
+<script src="{{url_for('static',filename='js/jscolor.js')}}"></script>
 
 {% endblock %}

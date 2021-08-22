@@ -3,9 +3,7 @@ import os
 
 import boto3
 import botocore
-
 from flask import current_app
-import hashlib
 
 with open(os.path.join(current_app.config['APP_STATIC'], 'KEYS/aws.json'))as f:
     aws_config = json.load(f)
@@ -27,7 +25,6 @@ def main(password, value=None):
             LogType='Tail',
         )
         return response_to_json(response)
-
 
     def send_new_colour(colour):
         try:

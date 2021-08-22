@@ -1,14 +1,13 @@
-import time
-from html.parser import HTMLParser
-import math
-import cv2
-import urllib.request, urllib.parse
 import os
-import copy
 import ssl
+import urllib.request
+from html.parser import HTMLParser
+
+import cv2
+import math
+import requests
 # from app import settings
 from lxml import html
-import requests
 
 
 class grabChildPages(HTMLParser):
@@ -33,6 +32,7 @@ def grabImages(childpage):
         if 'hero_small' in i or 'portrait_overview' in i:
             return i
 
+
 def grabDetails(childpage):
     tree = html.fromstring(childpage.content)
     details = {}
@@ -50,7 +50,7 @@ def grabDetails(childpage):
                             details[title] = details[title] + ", " + elem.text.strip()
                         else:
                             txt = elem.text.strip()
-                            txt = txt[0].upper() +txt[1:]
+                            txt = txt[0].upper() + txt[1:]
                             details[title] = txt
             if sibling.text.strip() != "":
                 if title in details:
@@ -63,6 +63,7 @@ def grabDetails(childpage):
     for key in details:
         tmp.append([key, details[key]])
     return tmp
+
 
 def calculate_population(animal):
     pop_text = animal[1][1][1]
@@ -98,6 +99,7 @@ def calculate_population(animal):
     if len(nums) > 2:
         nums = [nums[0], nums[0]]
     return nums
+
 
 if __name__ == "__main__":
     url = 'http://www.worldwildlife.org/species/directory?direction=desc&sort=extinction_status'

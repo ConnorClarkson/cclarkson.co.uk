@@ -4,7 +4,7 @@ def get_value_from_key(key, value, var):
             return
         for item in var:
             if item == key and var[item] == value:
-                    return var
+                return var
             if isinstance(item, dict):
                 obj = get_value_from_key(key, value, item)
                 if obj:

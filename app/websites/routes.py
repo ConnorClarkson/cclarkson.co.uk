@@ -15,9 +15,10 @@ except Exception as e:
         error = [datetime.now().strftime("%d-%m-%Y %H:%M"), "\tBLOG\t", str(e)]
         f.write(str(error))
 
+
 @bp.route('/showcase', methods=['GET'])
 def showcase():
-    websites =[]
+    websites = []
     for key in blog_json:
         if blog_json[key]['type'] == "website":
             websites.append(blog_json[key])

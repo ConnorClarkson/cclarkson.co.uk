@@ -1,9 +1,10 @@
 {% extends "base/base.html" %}
 {% block head_css %}
 {{ super()}}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+<link href="{{ url_for('static', filename='css/index.css') }}" rel="stylesheet">
 <style>
       h2 {width:100%;text-align:left;}
+
 
 </style>
 {% endblock %}
@@ -31,22 +32,35 @@
             {% endfor %}
         </ul>
     </div>
+    {% if 'technologies' in text %}
+    <div class="row">
+        <h2>Key Technologies</h2>
+        <ul style="list-style-type:none; text-align:left;">
+            {% for project in text['technologies'] %}
+            <li><p>{{ project }}</p></li>
+            <!--            <li>&nbsp;</li>-->
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+    {% if 'achievements' in text %}
     <div class="row">
         <h2>Key Achievements</h2>
         <ul style="list-style-type:none; text-align:left;">
             {% for project in text['achievements'] %}
             <li><p>{{ project }}</p></li>
-<!--            <li>&nbsp;</li>-->
+            <!--            <li>&nbsp;</li>-->
             {% endfor %}
         </ul>
     </div>
+    {% endif %}
     {% elif text['type'] == "education" or text['type'] == "certification" %}
     <div class="row">
         <ul style="list-style-type:none; text-align:left;float:left; padding-left:0px;">
             <li><h3>{{ text['qualification'] }}</h3></li>
             <li><h3>{{ text['school'] }}</h3></li>
             <li><h4>{{ text['dates'] }}</h4></li>
-<!--            <li>&nbsp;</li>-->
+            <!--            <li>&nbsp;</li>-->
             <li><h5>{{ text['short_bio'] }}</h5></li>
         </ul>
     </div>

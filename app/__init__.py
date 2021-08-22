@@ -2,8 +2,10 @@ import logging
 import os
 from datetime import datetime, timezone
 from logging.handlers import RotatingFileHandler
+
 from flask import Flask
 from flask_bootstrap import Bootstrap
+
 from config import Config
 
 bootstrap = Bootstrap()
