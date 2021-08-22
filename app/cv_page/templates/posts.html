@@ -32,6 +32,18 @@
             {% endfor %}
         </ul>
     </div>
+    {% if 'technologies' in text %}
+    <div class="row">
+        <h2>Key Technologies</h2>
+        <ul style="list-style-type:none; text-align:left;">
+            {% for project in text['technologies'] %}
+            <li><p>{{ project }}</p></li>
+            <!--            <li>&nbsp;</li>-->
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+    {% if 'achievements' in text %}
     <div class="row">
         <h2>Key Achievements</h2>
         <ul style="list-style-type:none; text-align:left;">
@@ -41,6 +53,7 @@
             {% endfor %}
         </ul>
     </div>
+    {% endif %}
     {% elif text['type'] == "education" or text['type'] == "certification" %}
     <div class="row">
         <ul style="list-style-type:none; text-align:left;float:left; padding-left:0px;">
