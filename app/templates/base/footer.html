@@ -29,7 +29,12 @@
     <!-- Footer Elements -->
 
     <!-- Copyright -->
-    <div class="text-center"><p>© 2021: Connor Clarkson</p></div>
+    <div class="text-center"><p>© <span id="copyright-year"></span> : Connor Clarkson</p></div>
+    <script>
+        const currentYear = new Date().getFullYear();
+        const copyrightYearSpan = document.getElementById('copyright-year');
+        copyrightYearSpan.textContent = currentYear;
+    </script>
 </footer>
 <!-- Footer -->
 {% endblock %}
