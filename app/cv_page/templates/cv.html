@@ -5,11 +5,6 @@
 <style>
       h3 {width:100%;text-align:left;}
 
-
-
-
-
-
 </style>
 {% endblock %}
 
@@ -26,64 +21,64 @@
     <br/>
 
     {% if resume %}
-    {% for year in resume %}
-    {% for proj in resume[year] %}
-    {% if 'current_role' in proj %}
-    <h3 style="text-align:left"> Current Role </h3>
-    <ul style="list-style-type: none;">
-        <li>
-            <h5 style="text-align: left">{{proj['dates']}}</h5>
-            <i class="fas fa-lg fa-briefcase" style="float:left; padding-top:4px;"> - &nbsp;</i>
-            <h5 style="text-align:left">{{proj['job_title']}} - {{proj['company']}}</h5>
-            {% if proj['short_bio'] |string() != "" %}
-            <p style="text-align:left;"> {{ proj['short_bio']}}
-                <br>
-                <a href="{{ url_for('cv_page.cv_extended', cv_id=proj['id']) }}">
-                    Read More..
-                </a></p>
-            {% endif %}
-        </li>
-    </ul>
-    {% endif %}
-    {% endfor %}
-    {% endfor %}
-    <br>
-    <h3>Experience</h3>
-    <hr/>
-    {% for year in resume %}
-    <h4 style="text-align:left"> {{year}} </h4>
+        {% for year in resume %}
+            {% for proj in resume[year] %}
+                {% if 'current_role' in proj %}
+                <h3 style="text-align:left"> Current Role </h3>
+                <ul style="list-style-type: none;">
+                    <li>
+                        <h5 style="text-align: left">{{proj['dates']}}</h5>
+                        <i class="fas fa-lg fa-briefcase" style="float:left; padding-top:4px;"> - &nbsp;</i>
+                        <h5 style="text-align:left">{{proj['job_title']}} - {{proj['company']}}</h5>
+                        {% if proj['short_bio'] |string() != "" %}
+                        <p style="text-align:left;"> {{ proj['short_bio']}}
+                            <br>
+                            <a href="{{ url_for('cv_page.cv_extended', cv_id=proj['id']) }}">
+                                Read More...
+                            </a></p>
+                        {% endif %}
+                    </li>
+                </ul>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+        <br>
+        <h3>Experience</h3>
+        <hr/>
+        {% for year in resume %}
+            <h4 style="text-align:left"> {{year}} </h4>
 
-    {% for proj in resume[year] %}
-    {% if 'current_role' not in proj %}
-    <ul style="list-style-type: none;">
-        <li>
-            {% if proj['type'] == 'work' %}
-            <i class="fas fa-lg fa-briefcase" style="float:left; padding-top:4px;"> - &nbsp;</i>
-            <h5 style="text-align:left">{{proj['job_title']}} - {{proj['company']}}</h5>
+            {% for proj in resume[year] %}
+                {% if 'current_role' not in proj %}
+                <ul style="list-style-type: none;">
+                    <li>
+                        {% if proj['type'] == 'work' %}
+                        <i class="fas fa-lg fa-briefcase" style="float:left; padding-top:4px;"> - &nbsp;</i>
+                        <h5 style="text-align:left">{{proj['job_title']}} - {{proj['company']}}</h5>
 
 
-            {% elif proj['type'] == 'education' %}
-            <i class="fas fa-lg fa-graduation-cap" style="float:left; padding-top:4px;"> - &nbsp;</i>
-            <h5 style="text-align:left">{{proj['qualification']}} </h5>
+                        {% elif proj['type'] == 'education' %}
+                        <i class="fas fa-lg fa-graduation-cap" style="float:left; padding-top:4px;"> - &nbsp;</i>
+                        <h5 style="text-align:left">{{proj['qualification']}} </h5>
 
-            {% elif proj['type'] == 'certification' %}
-            <i class="fas fa-lg fa-award" style="float:left; padding-top:4px;"> - &nbsp;</i>
-            <h5 style="text-align:left"> {{proj['qualification']}} </h5>
+                        {% elif proj['type'] == 'certification' %}
+                        <i class="fas fa-lg fa-award" style="float:left; padding-top:4px;"> - &nbsp;</i>
+                        <h5 style="text-align:left"> {{proj['qualification']}} </h5>
 
-            {% endif %}
-            {% if proj['short_bio'] |string() != "" %}
-            <p style="text-align:left;"> {{ proj['short_bio']}}
-                <br>
-                <a href="{{ url_for('cv_page.cv_extended', cv_id=proj['id']) }}">
-                    Read More..
-                </a></p>
-            {% endif %}
+                        {% endif %}
+                        {% if proj['short_bio'] |string() != "" %}
+                        <p style="text-align:left;"> {{ proj['short_bio']}}
+                            <br>
+                            <a href="{{ url_for('cv_page.cv_extended', cv_id=proj['id']) }}">
+                                Read More...
+                            </a></p>
+                        {% endif %}
 
-        </li>
-    </ul>
-    {% endif %}
-    {% endfor %}
-    {% endfor %}
+                    </li>
+                </ul>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
     {% endif %}
 </div>
 {% endblock %}

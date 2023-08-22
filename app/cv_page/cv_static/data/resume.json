@@ -1,21 +1,37 @@
 {
+  "2023": [
+    {
+      "id": "independent_de",
+      "dates": "August 2023 - Present",
+      "job_title": "Senior Data Engineer (Contractor)",
+      "company": "Guidant Global",
+      "short_bio": "Short term data engineering role working on High Frequency Data.",
+      "bio": [],
+      "achievements": [],
+      "type": "work",
+      "current_role": true
+
+    },
+    {
+      "id": "BAE",
+      "dates": "July 2021 - July 2023",
+      "job_title": "Senior Software Engineer",
+      "company": "BAE Systems Applied Intelligence, London",
+      "short_bio": "Technology stack includes Python, Elasticsearch, Hadoop, SAS, Linux to deliver various projects",
+      "bio": [
+        "<b>Project 0</b> - I was the technical specialist for high volume / high frequency data.<br>Working closely with data owners and analysts to provide business value.<br>Managing over 10 near realtime data feeds with over 15 million events per day.<br>Deployed a code solution to increase data throughput by 150x between systems whilst improving assurance of the data.<br>Input to customer data strategy and horizon planning for new data.<br>Responsible for data cleaning, data modelling, and data pipeline deployment.<br>Provide analytical and statistical expertise to solve complex issues and drive business decisions<br>Work with compliance and governance teams to ensure data teams work within policy."
+      ],
+      "achievements": [
+        "Managing and maintaining near real time data feeds for mission critical applications.",
+        "Advised and discuss data transformation at a cross company level.",
+        "Worked within legal and policy frameworks to ensure data was compliant."
+      ],
+      "type": "work"
+    }
+  ],
   "2021": [
     {
-      "bae": "",
-      "bio": [
-        "<b>Project 0</b> - Responsibilities have broader to now include providing SME knowledge within onboarding specific High Volume/High Frequency data pipelines within the customers existing platforms. This includes working with various upstream teams to determine schemas, data models, and reduce latency to produce near real time access."
-      ],
-      "company": "BAE Systems Applied Intelligence, London",
-      "current_role": true,
-      "dates": "July 2021 - Present",
-      "id": "BAE",
-      "job_title": "Senior Software Engineer",
-      "short_bio": "Technology stack includes Python, Elasticsearch, Hadoop, SAS, Linux to deliver various projects",
-      "type": "work"
-    },
-     {
       "id": "BAE_se",
-      "bae": "",
       "dates": "July 2016 - July 2021",
       "job_title": "Software Engineer",
       "company": "BAE Systems Applied Intelligence, London",
@@ -26,14 +42,6 @@
         "<b>Project 1</b> - Selected to be part of a small team to provide Cloud based Data Engineering capabilities for the COVID-19 response. I worked with a range of API’s and data access points to automate the data ingest process to provide up to date data for the the data scientist and data analysts. Using AWS products such as S3, Lambda, and CloudWatch. Also using processes such as Infrastructure-as-code to create repeatable deployment pipelines. ",
         "<b>Project 2</b> - As part of the forward deployed software development  team, working closely with stakeholders to understand their data holdings and turn it into actionable decisions. Day to day tasks include working with a range of data formats, building reusable data pipelines to transform and standardise data into a conformed schema, data exploration for data quality issues and schema discovery. As well as building a tool to monitor data landing, a script to check the integrity of Parquet files in transit, building small web apps to help analysts to complete mundane tasks quickly.",
         "<b>Project 3</b> - Working within a sward of four software developers using agile methodologies to deliver and support a bespoke mission critical data analysis framework which turns a daily stream of ~1TB of raw data into rich valuable data through manipulation and enrichments for our analysts. The framework consists of python micro-services, Object orientated component’s, web services using Flask, Behaviour driven development, Unit and integration testing, and version control.Using jira to plan sprints, confluence to document code and record retrospectives."
-      ],
-      "technologies": [
-        "Python3, Flask, Spark, Pandas",
-        "Hadoop, Data lake, Data modelling",
-        "Elasticsearch, Kibana, Kafka",
-        "Jira, Git/Bitbucket, Jenkins",
-        "AWS - S3, Lambda, CloudWatch, CodePipeline",
-        "Linux - Centos, Redhat, Ubuntu\n"
       ],
       "achievements": [
         "Delivering mission critical bespoke software engineering projects.",
