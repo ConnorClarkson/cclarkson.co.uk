@@ -5,6 +5,7 @@ header #logo-main {
 }
 .list-group-item {
     border:none !important;
+
 }
 .list-group-item > a {
   display: inline-block;
