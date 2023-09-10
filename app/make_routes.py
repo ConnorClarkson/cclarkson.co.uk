@@ -8,7 +8,7 @@ def define_routes(config, module):
         # request.form()
         password = None
         try:
-            password = hashlib.md5(request.form.get('password').encode())
+            password = hashlib.sha256(request.form.get('password').encode())
         except:
             pass
 
