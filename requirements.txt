@@ -7,7 +7,7 @@ chardet==5.2.0
 charset-normalizer==3.2.0
 click==8.1.7
 cognitojwt==1.4.1
-cryptography==41.0.3
+cryptography==41.0.6
 DateTime==5.2
 docutils==0.20.1
 dominate==2.8.0
