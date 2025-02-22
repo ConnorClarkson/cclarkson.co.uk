@@ -17,8 +17,8 @@
     <div class="row">
         <ul style="list-style-type:none; text-align:left;float:left; padding-left:0px;">
             <li><h3>{{ text['title'] }}</h3></li>
-            <li><h5><i class="fas fa-globe-europe fa-lg"></i> <a href="{{ text['link'] }}"
-                                                                 target="_blank" rel="noopener">{{ text['link'] }} </a></h5>
+            <li><h5><i class="fas fa-globe-europe fa-lg"></i> {% if text['link'].startswith('Offline') %}{{ text['link'] }} {% else %}<a href="{{ text['link'] }}"
+                                                                 target="_blank" rel="noopener">{{ text['link'] }} </a>{% endif %}</h5>
             </li>
             {% if text['github'] %}
             <li><h5><i class="fab fa-github fa-lg white-text"> </i> <a href="{{ text['github'] }}"

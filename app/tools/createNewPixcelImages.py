@@ -1,13 +1,14 @@
 import os
-import ssl
+import time
 import urllib.request
 from html.parser import HTMLParser
 
+import cloudscraper
 import cv2
 import math
-import requests
 # from app import settings
 from lxml import html
+from pathlib import Path
 
 
 class grabChildPages(HTMLParser):
@@ -102,22 +103,38 @@ def calculate_population(animal):
 
 
 if __name__ == "__main__":
-    url = 'http://www.worldwildlife.org/species/directory?direction=desc&sort=extinction_status'
-    ROOT = "../static/img/WWF"  # os.path.join(settings.APP_STATIC, "img/WWF")
-    response = urllib.request.urlopen(url, context=ssl._create_unverified_context())
-    webContent = response.read()
+    url = 'https://www.worldwildlife.org/species/directory?direction=desc&sort=extinction_status'
+    ROOT = "../apps/apps_static/WWF"  # os.path.join(settings.APP_STATIC, "img/WWF")
+    img_ROOT = "../apps_static/WWF"  # os.path.join(settings.APP_STATIC, "img/WWF")
+    scraper = cloudscraper.create_scraper()
+    response = scraper.get(url)
+    time.sleep(2)
+    # response = urllib.request.urlopen(url, context=ssl._create_unverified_context(), headers={'User-Agent': 'Mozilla/5.0'})
     parser = grabChildPages()
-    parser.feed(webContent.decode("utf-8"))
+    parser.feed(response.text)
     webpageList = parser.htmlList[2:]
     imgHTMLList = []
     for page in webpageList:
-        response = requests.get(page)
+        response = scraper.get(page)
+        time.sleep(0.5)
         details = grabDetails(response)
+        if not details:
+            exit(1)
         if 'Endangered' in details[0][1]:
             image = grabImages(response)
             filename = page.split('/')[-1]
             filename = filename.replace('-', '_')
             imgHTMLList.append([page, details, image, filename, "{}/animalImages/{}.jpg".format(ROOT, filename)])
+            print(filename)
+
+    if not Path(ROOT).exists():
+        Path(ROOT).mkdir(parents=True, exist_ok=True)
+    if not Path(ROOT + '/animalImages/').exists():
+        Path(ROOT + '/animalImages/').mkdir(parents=True, exist_ok=True)
+    if not Path(ROOT + '/resizedImages/').exists():
+        Path(ROOT + '/resizedImages/').mkdir(parents=True, exist_ok=True)
+    if not Path(ROOT + '/outputImages/').exists():
+        Path(ROOT + '/outputImages/').mkdir(parents=True, exist_ok=True)
 
     for filename in os.listdir(ROOT + '/animalImages/'):
         os.remove(ROOT + '/animalImages/' + filename)
@@ -128,7 +145,11 @@ if __name__ == "__main__":
     for imageUrl in imgHTMLList:
         if imageUrl[2] != "":
             try:
-                urllib.request.urlretrieve(str(imageUrl[2]), imageUrl[-1])
+                # urllib.request.urlretrieve(str(imageUrl[2]), imageUrl[-1])
+                response = scraper.get(str(imageUrl[2]))
+                if response.status_code == 200:
+                    with open(imageUrl[-1], "wb") as file:
+                        file.write(response.content)
             except:
                 print(imageUrl[-1])
     final_csv = []
@@ -170,8 +191,8 @@ if __name__ == "__main__":
         tmp.append(numList[0])
         for row in animal:
             tmp.append(row)
-        tmp.append("{}/resizedImages/{}.jpg".format(ROOT, animalName))
-        tmp.append("{}/outputImages/{}.jpg".format(ROOT, animalName))
+        tmp.append("{}/resizedImages/{}.jpg".format(img_ROOT, animalName))
+        tmp.append("{}/outputImages/{}.jpg".format(img_ROOT, animalName))
         final_csv.append(tmp)
 
 with open("{}/list.csv".format(ROOT), "w")as f:
