@@ -16,7 +16,7 @@
     <ul style="list-style-type: none;text-align:left;">
         {% for key in blog %}
         <li><h5><u>{{ blog[key]['title'] }}</u></h5></li>
-        <li>{% if text['link'].startswith('Offline') %}{% if text['link'].startswith('Offline') %}{{ text['link'] }} {% else %}<a href="{{ blog[key]['link'] }}" target="_blank" rel="noopener">{{ blog[key]['link'] }} </a>{% endif %}</li>
+        <li>{% if blog[key]['link'].startswith('Offline') %}{{ blog[key]['link'] }} {% else %}<a href="{{ blog[key]['link'] }}" target="_blank" rel="noopener">{{ blog[key]['link'] }} </a>{% endif %}</li>
         <li>{{ blog[key]['short_bio'] }}</li>
         <li><a href="{{ url_for('blog_page.blog_extended', post_id=blog[key]['id']) }}">Read more..</a></li>
         <li>&nbsp;</li>

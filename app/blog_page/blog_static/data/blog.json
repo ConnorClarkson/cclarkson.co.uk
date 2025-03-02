@@ -1,21 +1,4 @@
 {
-  "WWF": {
-    "id": "WWF",
-    "type": "app",
-    "title": "WWF",
-    "link": "",
-    "github": "",
-    "img_src": "",
-    "short_bio": "A python script that scrapes WWF's list of endangered animals and then converts the images to the pixel count of the remaining population.",
-    "bio": [
-      "<h5>Overview:</h5>",
-      "A python script that scrapes WWF's list of endangered animals and then converts the images to the pixel count of the remaining population.",
-      "<br>",
-
-      "<h5>Technologies:</h5>",
-      "<ul><li>Python3</li><li>OpenCV</li></ul>"
-    ]
-  },
   "KYLLER": {
     "id": "KYLLER",
     "type": "website",
