@@ -1,7 +1,7 @@
 {
   "cv_data": {
-    "tech": "Python, Flask, Linux, Kafka, CI/CD, Jenkins",
-    "vendors": "AWS, Snowflake"
+    "tech": "Python, DBT, SQL, Flask,  Kafka, CI/CD, Jenkins",
+    "vendors": "AWS, Snowflake, Linux"
 
   },
   "experience": {
@@ -14,10 +14,14 @@
         "short_bio": "Leading technical strategy and implementation of enterprise-scale data solutions while driving engineering excellence across teams",
         "bio": [
           "Delivered company's most complex data pipeline, processing 50 source tables and 100 intermediate steps to produce a single data mart.",
-          "Introduced Semantic Versioning and conventional commit standards to manage deployment dependencies in a multi-tenant environment.",
-          "Established engineering guidelines and best practices documentation used by 25+ developers."
+          "Implemented Semantic Versioning and conventional commit standards, enhancing version control and dependency management in a multi-tenant environment, reducing deployment risks and ensuring seamless updates.",
+          "Authored and established engineering guidelines and best practices documentation, adopted by 25+ developers, fostering consistency, improving code quality, and accelerating development efficiency across teams."
         ],
-        "achievements": [],
+        "achievements": [
+          "Influenced Engineering Culture & Best Practices.",
+          "Standardized Deployment Processes for Greater Stability & Reliability.",
+          "Complex Data Pipeline Development."
+        ],
         "type": "work",
         "current_role": true
       },
@@ -25,14 +29,18 @@
         "id": "independent_de",
         "dates": "August 2023 - October 2023",
         "job_title": "Senior Data Engineer",
-        "company": "Contractor, London",
+        "company": "Independent Contractor, London",
         "short_bio": "Provided specialist technical oversight for business-critical data systems.",
         "bio": [
           "Maintained 10+ near-real-time data pipelines processing 15M+ daily events.",
           "Created comprehensive technical documentation covering 100% of critical pipelines.",
           "Delivered hands-on training sessions for 4 team member."
         ],
-        "achievements": [],
+        "achievements": [
+          "Ensured high system reliability with minimal downtime.",
+          "Improved Documentation & Knowledge Retention.",
+          "Upskilled Team Capabilities."
+        ],
         "type": "work"
       },
       {
