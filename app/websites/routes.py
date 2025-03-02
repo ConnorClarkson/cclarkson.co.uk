@@ -5,9 +5,10 @@ from datetime import datetime
 from flask import render_template, current_app
 
 from app.websites import bp
+from app.blog_page import bp as blog_bp
 
 try:
-    with open(os.path.join(current_app.config['APP_STATIC'], 'data/blog.json')) as f:
+    with open(os.path.join(blog_bp.static_folder, 'data/blog.json')) as f:
         blog_json = json.load(f)
 except Exception as e:
     blog_json = None

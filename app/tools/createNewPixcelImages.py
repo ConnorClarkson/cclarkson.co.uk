@@ -1,14 +1,15 @@
 import os
 import time
-import urllib.request
 from html.parser import HTMLParser
+from http.client import responses
 
 import cloudscraper
+import requests
 import cv2
 import math
-# from app import settings
 from lxml import html
 from pathlib import Path
+from scrapling.defaults import Fetcher, StealthyFetcher
 
 
 class grabChildPages(HTMLParser):
@@ -72,12 +73,12 @@ def calculate_population(animal):
     nums = []
     for word in text:
         splitvar = '-'
-        if '–' in word:
-            splitvar = '–'
-        elif '–' in word:
-            splitvar = '–'
-        elif '–' in word:
-            splitvar = '–'
+        # if '–' in word:
+        #     splitvar = '–'
+        # elif '–' in word:
+        #     splitvar = '–'
+        # elif '–' in word:
+        #     splitvar = '–'
 
         for subsplit in word.split(splitvar):
             try:
@@ -106,18 +107,32 @@ if __name__ == "__main__":
     url = 'https://www.worldwildlife.org/species/directory?direction=desc&sort=extinction_status'
     ROOT = "../apps/apps_static/WWF"  # os.path.join(settings.APP_STATIC, "img/WWF")
     img_ROOT = "../apps_static/WWF"  # os.path.join(settings.APP_STATIC, "img/WWF")
-    scraper = cloudscraper.create_scraper()
-    response = scraper.get(url)
+    # headers = {
+    #     "sec-ch-ua": '"Google Chrome";v="131", "Chromium";v="131", "Not-A Brand";v="24"',
+    #     "sec-ch-ua-mobile": "?0",
+    #     "sec-ch-ua-platform": "Windows",
+    #     "sec-fetch-site": "same-origin",
+    #     "sec-fetch-mode": "cors",
+    #     'Connection': 'keep-alive',
+    #     'host': 'www.worldwildlife.org',
+    #     'Referer': 'https://www.google.com/search?q=worldwildlife'}
+    # result = requests.get(url, headers=headers, verify=False)
+    # scraper = cloudscraper.create_scraper()
+    # response = scraper.get(url, headers=headers)
+    response = StealthyFetcher.fetch(url)
+    if response.status != 200:
+        print(f"Error: Could not connect to the website. {response.status_code}")
+        exit(1)
     time.sleep(2)
     # response = urllib.request.urlopen(url, context=ssl._create_unverified_context(), headers={'User-Agent': 'Mozilla/5.0'})
     parser = grabChildPages()
-    parser.feed(response.text)
+    parser.feed(response.body)
     webpageList = parser.htmlList[2:]
     imgHTMLList = []
     for page in webpageList:
-        response = scraper.get(page)
+        response = StealthyFetcher.fetch(page)
         time.sleep(0.5)
-        details = grabDetails(response)
+        details = grabDetails(response.body)
         if not details:
             exit(1)
         if 'Endangered' in details[0][1]:
@@ -136,6 +151,7 @@ if __name__ == "__main__":
     if not Path(ROOT + '/outputImages/').exists():
         Path(ROOT + '/outputImages/').mkdir(parents=True, exist_ok=True)
 
+    # remove all existing files in the directories
     for filename in os.listdir(ROOT + '/animalImages/'):
         os.remove(ROOT + '/animalImages/' + filename)
     for filename in os.listdir(ROOT + '/resizedImages/'):
@@ -160,7 +176,7 @@ if __name__ == "__main__":
                 continue
             img = cv2.imread(animal[-1])
             animalName = animal[-2].replace(' ', '')
-            img = cv2.resize(img, (600, 600))
+            img = cv2.resize(img, (800, 800))
             cv2.imwrite("{}/resizedImages/{}.jpg".format(ROOT, animalName), img)
             if len(numList) == 1:
                 if numList[0] == 'Unknown':
