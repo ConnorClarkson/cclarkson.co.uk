@@ -8,7 +8,7 @@ from flask import render_template
 from app.blog_page import bp
 
 try:
-    with open(os.path.join(current_app.config['APP_STATIC'], 'data/blog.json')) as f:
+    with open(os.path.join(bp.static_folder, 'data/blog.json')) as f:
         blog_json = json.load(f)
 except Exception as e:
     blog_json = None

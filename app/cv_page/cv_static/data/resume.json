@@ -1,232 +1,263 @@
 {
-  "2023": [
-    {
-      "id": "independent_de",
-      "dates": "August 2023 - Present",
-      "job_title": "Senior Data Engineer (Contractor)",
-      "company": "Guidant Global",
-      "short_bio": "Short term data engineering role working on High Frequency Data.",
-      "bio": ["To be Updated..."],
-      "achievements": [],
-      "type": "work",
-      "current_role": true
+  "cv_data": {
+    "tech": "Python, Flask, Linux, Kafka, CI/CD, Jenkins",
+    "vendors": "AWS, Snowflake"
 
-    },
-    {
-      "id": "BAE",
-      "dates": "July 2021 - July 2023",
-      "job_title": "Senior Software Engineer",
-      "company": "BAE Systems Applied Intelligence, London",
-      "short_bio": "Technology stack includes Python, Elasticsearch, Hadoop, SAS, Linux to deliver various projects",
-      "bio": [
-        "<b>Project 0</b> - I was the technical specialist for high volume / high frequency data.<br>Working closely with data owners and analysts to provide business value.<br>Managing over 10 near realtime data feeds with over 15 million events per day.<br>Deployed a code solution to increase data throughput by 150x between systems whilst improving assurance of the data.<br>Input to customer data strategy and horizon planning for new data.<br>Responsible for data cleaning, data modelling, and data pipeline deployment.<br>Provide analytical and statistical expertise to solve complex issues and drive business decisions<br>Work with compliance and governance teams to ensure data teams work within policy."
-      ],
-      "achievements": [
-        "Managing and maintaining near real time data feeds for mission critical applications.",
-        "Advised and discuss data transformation at a cross company level.",
-        "Worked within legal and policy frameworks to ensure data was compliant."
-      ],
-      "type": "work"
-    }
-  ],
-  "2021": [
-    {
-      "id": "BAE_se",
-      "dates": "July 2016 - July 2021",
-      "job_title": "Software Engineer",
-      "company": "BAE Systems Applied Intelligence, London",
-      "short_bio": "Technology stack includes Python, Elasticsearch, Hadoop, SAS, Linux to deliver various projects",
-      "bio": [
-        "I have been involved in various client-side software engineering projects through my employment. I completed a bespoke training academy covering Object-Oriented design, Java Enterprise, Testing processes, and software lifecycles. Which resulted in multiple professional certifications including Oracle Certified Associate - Java SE 7 Programmer",
-        "<b>Project 0</b> - Due to COVID-19 our forward deployed software development team, moved to remote working. Our team moved to further develop a bespoke capability for Project 2. The capability provides an end to end data pipeline solution for data ingestion, extraction, and statistical analysis. I produced software designs on how the transfer of data between micro services would be implemented and POC using Kafka. Contributed to complex design designs, Performed code reviews across the repositories, Created CI/CD pipelines, Presented progress of the MVP to the client.",
-        "<b>Project 1</b> - Selected to be part of a small team to provide Cloud based Data Engineering capabilities for the COVID-19 response. I worked with a range of API’s and data access points to automate the data ingest process to provide up to date data for the the data scientist and data analysts. Using AWS products such as S3, Lambda, and CloudWatch. Also using processes such as Infrastructure-as-code to create repeatable deployment pipelines. ",
-        "<b>Project 2</b> - As part of the forward deployed software development  team, working closely with stakeholders to understand their data holdings and turn it into actionable decisions. Day to day tasks include working with a range of data formats, building reusable data pipelines to transform and standardise data into a conformed schema, data exploration for data quality issues and schema discovery. As well as building a tool to monitor data landing, a script to check the integrity of Parquet files in transit, building small web apps to help analysts to complete mundane tasks quickly.",
-        "<b>Project 3</b> - Working within a sward of four software developers using agile methodologies to deliver and support a bespoke mission critical data analysis framework which turns a daily stream of ~1TB of raw data into rich valuable data through manipulation and enrichments for our analysts. The framework consists of python micro-services, Object orientated component’s, web services using Flask, Behaviour driven development, Unit and integration testing, and version control.Using jira to plan sprints, confluence to document code and record retrospectives."
-      ],
-      "achievements": [
-        "Delivering mission critical bespoke software engineering projects.",
-        "Communicate with Management, Stakeholders, and end users directly to understand requirements, issues and steps forward. Which resulted in winning the trust of clients and strengthening the company relationship.\n",
-        "Leading and mentoring Interns and junior staff.",
-        "Co-leading a team to deliver software on time.",
-        "Working with agile methodologies to deliver iterative project updates."
-      ],
-      "type": "work"
-    }
-  ],
-  "2020": [
-    {
-      "id": "maths_for_science_and_tech",
-      "dates": "May 2020",
-      "qualification": "Introductory level Science, Maths & Technology",
-      "school": "Open University",
-      "type": "certification",
-      "short_bio": "This course will give you a better understanding of how algebra, scientific notation and trigonometry is used in science, and the world around us."
-    }
-  ],
-  "2019": [
-    {
-      "id": "inside_sherpa_JP_morgan",
-      "dates": "November 2019",
-      "qualification": "Software Engineering Virtual Experience",
-      "school": "Inside Sherpa & JP Morgan Chase & Co",
-      "type": "certification",
-      "short_bio": "An online course to dive into JPMorgan Chase frameworks and apply your technical skills to a hypothetical request from the firm’s trading floor to analyze and visualize data in a new way."
-    },
-    {
-      "id": "aws_essentials",
-      "dates": "January 2019",
-      "qualification": "AWS Technical Essentials & Developing on AWS",
-      "school": "QA",
-      "type": "certification",
-      "short_bio": "This introductory course, demonstrates the basics AWS products, services, and common solutions. "
-    }
-  ],
-  "2018": [
-    {
-      "id": "opu_cyber",
-      "dates": "January 2018",
-      "qualification": "Introduction to Cyber Security",
-      "school": "Open University",
-      "type": "education",
-      "short_bio": "An open University course to understand the fundamentals of cyber security and how to protect against online threats."
-    }
-  ],
-  "2017": [
-    {
-      "id": "ITIL",
-      "ITIL": "",
-      "dates": "January 2017",
-      "qualification": "ITIL® Foundation certificate",
-      "school": "BCS",
-      "type": "certification",
-      "short_bio": "ITIL is a body of knowledge and best practices for successful IT Service Management."
-    }
-  ],
-  "2016": [
-    {
-      "id": "java_se_7",
-      "dates": "November 2016",
-      "qualification": "Oracle Certified Associate, Java SE 7 Programmer",
-      "school": "Oracle",
-      "type": "certification",
-      "short_bio": "Oracle Certified Associate Java Programmer (OCAJP 7) is an associate-level certification that validates your basic skills of writing code with fundamental concepts of Java SE 7."
-    },
-    {
-      "id": "ISTQB_bcs",
-      "dates": "October 2016",
-      "qualification": "ISTQB-BCS Certiﬁed Tester Foundation Level",
-      "school": "BCS",
-      "type": "certification",
-      "short_bio": "The Foundation Level syllabus forms the basis of the International Software Testing Qualifications Board (ISTQB®) Certified Tester Scheme.\n"
-    },
-    {
-      "id": "university_analyst",
-      "dates": "August 2015 - May 2016 ",
-      "job_title": "Junior IT Analyst",
-      "company": "University of Hull, Hull",
-      "short_bio": "Supporting the IT Systems team to deploy new OS and provide technical support to lectures.",
-      "bio": [
-        "As a temporary help for the departments IT Systems team, tasks I had to perform included imaging lab pc's, installing new pc's, \ntesting new OS after they have been deployed and providing low level technical support to staff and students.\nWorking in the departments system team I can learn more about how a business' infrastructure is managed, supported and maintained."
-      ],
-      "achievements": [
-        "Developing a good reputation with lectures and the IT team",
-        "Understanding business infrastructure and deployment on a large scale",
-        "Provide extra help for the IT team",
-        "Deploy PC images for the start of term",
-        "Provide Technical support to the lectures"
-      ],
-      "type": "work"
-    },
-    {
-      "id": "university",
-      "dates": "2013 - 2016",
-      "qualification": "Bachelor's Degree with Hons, Computer Science with Games Development",
-      "school": "The University of Hull",
-      "type": "education",
-      "short_bio": "Studying various computer science topics resulting in a 2:1 Bachelors Degree with Hons.",
-      "bio": [
-        "First Year Overall Grade - 76%",
-        "\t- Computer Systems - 61%",
-        "\t- IT and professional Skills - 76%",
-        "\t- Programming 1 - 87%",
-        "\t- Programming 2 - 83%",
-        "\t- Quantitative Methods for Computing - 69%",
-        "\t- Software Engineering - 69%",
-        "\nSecond Year Overall Grade - 68.8%",
-        "\t- 2D graphics - 70%",
-        "\t- Advance programming - 64%",
-        "\t- Artificial intelligence - 77%",
-        "\t- Networking and Games Architecture- 71%",
-        "\t- Simulation and 3D graphics - 71%",
-        "\t- System analysis - 60%",
-        "\nThird Year Overall Grade - 66%",
-        "\t- Mobile Device and Applications - 62%",
-        "\t- Neural, Emergent and Agent Technology - 55%",
-        "\t- Stereo Games for the treatment of lazy eyes in children (Dissertation) - 62%",
-        "\t- Commercial Games Development - 71%",
-        "\t- Games Programming and Advance Graphics - 86%"
-      ]
-    }
-  ],
-  "2015": [
-    {
-      "id": "uni_software_dev",
-      "dates": "March 2015 - August 2015",
-      "job_title": "Software Engineer",
-      "company": "University of Hull, Hull",
-      "short_bio": "Working within the NHS radiotherapy department to support on going research.",
-      "bio": [
-        "As Part of a Collaboration with the University of Hull and NHS Castle Hill Hospital. Working with the Radiotherapy Physics Department to help develop a C# script to work on Eclipse (Varian Medical Systems) to create a tool to support research in radiotherapy.",
-        "The Aim of the tool is to aid in the quality assurance process of the treatment plans"
-      ],
-      "achievements": [
-        "Develop research software for an NHS department",
-        "Working with the NHS to develop/further understand the Varian system",
-        "Provide a platform for the NHS team to further develop"
-      ],
-      "type": "work"
-    }
-  ],
-  "2014": [
-    {
-      "id": "hive_research",
-      "dates": "February 2014 - September 2014",
-      "job_title": "HIVE Research Internship",
-      "company": "University of Hull, Hull",
-      "short_bio": "Working within Hull universities Immersive Virtual Environment to develop a Virtual reality Star Wars like experience.",
-      "bio": [
-        "I worked on a project within Hull Immersive Virtual Environment, which investigated using hand held devices to aid in Virtual Environments.",
-        "Using a Wii remote, Unity, Virtual Reality Peripheral Network and a back projected 4-sided cube, I created a Star Wars based game in which the user used the Wii remote to controller the lightsaber."
-      ],
-      "achievements": [
-        "Research into my chosen project",
-        "Develop a prototype application",
-        "Created a working prototype",
-        "Understanding Virtual Reality technology",
-        "Working to deadlines"
-      ],
-      "type": "work"
-    }
-  ],
-  "2012": [
-    {
-      "id": "olympics_2012",
-      "dates": "July 2012 - September 2012",
-      "job_title": "Security",
-      "company": "G4S, London Olympics 2012",
-      "short_bio": "Working as full time at the London 2012 olympics in partnership with G4S and Bridging the Gap project to provide spectator safety.",
-      "bio": [
-        "This was a full-time security position working on the Olympic Park for the London 2012 Olympic & Paralympic Games.",
-        "During this time, I worked closely with the Armed Forces as part of the radiation team, scanning visitors as they entered the park for increased levels of radiation.",
-        "I had to be alert and react quickly to any alerts. I also worked on the personal security areas (PSA), bag searching and body searching visitors to the park. I also used the x-ray machine to pre-search bags."
-      ],
-      "achievements": [
-        "First line of security for the Olympic park",
-        "Proactive in maintain customers safety",
-        "Provide help and assistance to customers",
-        "Developed skills outside of my comfort zone"
-      ],
-      "type": "work"
-    }
-  ]
+  },
+  "experience": {
+    "2023": [
+      {
+        "id": "newday",
+        "dates": "October 2023 - Present",
+        "job_title": "Senior Data Engineer",
+        "company": "NewDay, London",
+        "short_bio": "Leading technical strategy and implementation of enterprise-scale data solutions while driving engineering excellence across teams",
+        "bio": [
+          "Delivered company's most complex data pipeline, processing 50 source tables and 100 intermediate steps to produce a single data mart.",
+          "Introduced Semantic Versioning and conventional commit standards to manage deployment dependencies in a multi-tenant environment.",
+          "Established engineering guidelines and best practices documentation used by 25+ developers."
+        ],
+        "achievements": [],
+        "type": "work",
+        "current_role": true
+      },
+      {
+        "id": "independent_de",
+        "dates": "August 2023 - October 2023",
+        "job_title": "Senior Data Engineer",
+        "company": "Contractor, London",
+        "short_bio": "Provided specialist technical oversight for business-critical data systems.",
+        "bio": [
+          "Maintained 10+ near-real-time data pipelines processing 15M+ daily events.",
+          "Created comprehensive technical documentation covering 100% of critical pipelines.",
+          "Delivered hands-on training sessions for 4 team member."
+        ],
+        "achievements": [],
+        "type": "work"
+      },
+      {
+        "id": "BAE",
+        "dates": "July 2021 - July 2023",
+        "job_title": "Senior Software Engineer",
+        "company": "BAE Systems Applied Intelligence, London",
+        "short_bio": "Technology stack includes Python, Elasticsearch, Hadoop, SAS, Linux to deliver various projects",
+        "bio": [
+          "Technical specialist for high volume / high frequency data.",
+          "Working closely with data owners and analysts to provide business value.",
+          "Managing over 10 near realtime data feeds with over 15 million events per day.",
+          "Deployed a code solution to increase data throughput by 150x between systems whilst improving assurance of the data.",
+          "Input to customer data strategy and horizon planning for new data acquisitions.",
+          "Responsible for data cleaning, data modelling, and data pipeline deployment.",
+          "Provide analytical and statistical expertise to solve complex issues and drive business decisions",
+          "Work with compliance and governance teams to ensure data teams work within policy."
+        ],
+        "achievements": [
+          "Managing and maintaining near real time data feeds for mission critical applications.",
+          "Advised and discuss data transformation at a cross company level.",
+          "Worked within legal and policy frameworks to ensure data was compliant."
+        ],
+        "type": "work"
+      }
+    ],
+    "2021": [
+      {
+        "id": "BAE_se",
+        "dates": "July 2016 - July 2021",
+        "job_title": "Software Engineer",
+        "company": "BAE Systems Applied Intelligence, London",
+        "short_bio": "Technology stack includes Python, Elasticsearch, Hadoop, SAS, Linux to deliver various projects",
+        "bio": [
+          "I have been involved in various client-side software engineering projects through my employment. I completed a bespoke training academy covering Object-Oriented design, Java Enterprise, Testing processes, and software lifecycles. Which resulted in multiple professional certifications including Oracle Certified Associate - Java SE 7 Programmer",
+          "<b>Project 0</b> - Due to COVID-19 our forward deployed software development team, moved to remote working. Our team moved to further develop a bespoke capability for Project 2. The capability provides an end to end data pipeline solution for data ingestion, extraction, and statistical analysis. I produced software designs on how the transfer of data between micro services would be implemented and POC using Kafka. Contributed to complex design designs, Performed code reviews across the repositories, Created CI/CD pipelines, Presented progress of the MVP to the client.",
+          "<b>Project 1</b> - Selected to be part of a small team to provide Cloud based Data Engineering capabilities for the COVID-19 response. I worked with a range of API’s and data access points to automate the data ingest process to provide up to date data for the the data scientist and data analysts. Using AWS products such as S3, Lambda, and CloudWatch. Also using processes such as Infrastructure-as-code to create repeatable deployment pipelines. ",
+          "<b>Project 2</b> - As part of the forward deployed software development  team, working closely with stakeholders to understand their data holdings and turn it into actionable decisions. Day to day tasks include working with a range of data formats, building reusable data pipelines to transform and standardise data into a conformed schema, data exploration for data quality issues and schema discovery. As well as building a tool to monitor data landing, a script to check the integrity of Parquet files in transit, building small web apps to help analysts to complete mundane tasks quickly.",
+          "<b>Project 3</b> - Working within a sward of four software developers using agile methodologies to deliver and support a bespoke mission critical data analysis framework which turns a daily stream of ~1TB of raw data into rich valuable data through manipulation and enrichments for our analysts. The framework consists of python micro-services, Object orientated component’s, web services using Flask, Behaviour driven development, Unit and integration testing, and version control.Using jira to plan sprints, confluence to document code and record retrospectives."
+        ],
+        "achievements": [
+          "Delivering mission critical bespoke software engineering projects.",
+          "Communicate with Management, Stakeholders, and end users directly to understand requirements, issues and steps forward. Which resulted in winning the trust of clients and strengthening the company relationship.\n",
+          "Leading and mentoring Interns and junior staff.",
+          "Co-leading a team to deliver software on time.",
+          "Working with agile methodologies to deliver iterative project updates."
+        ],
+        "type": "work"
+      }
+    ],
+    "2020": [
+      {
+        "id": "maths_for_science_and_tech",
+        "dates": "May 2020",
+        "qualification": "Introductory level Science, Maths & Technology",
+        "school": "Open University",
+        "type": "certification",
+        "short_bio": "This course will give you a better understanding of how algebra, scientific notation and trigonometry is used in science, and the world around us."
+      }
+    ],
+    "2019": [
+      {
+        "id": "inside_sherpa_JP_morgan",
+        "dates": "November 2019",
+        "qualification": "Software Engineering Virtual Experience",
+        "school": "Inside Sherpa & JP Morgan Chase & Co",
+        "type": "certification",
+        "short_bio": "An online course to dive into JPMorgan Chase frameworks and apply your technical skills to a hypothetical request from the firm’s trading floor to analyze and visualize data in a new way."
+      },
+      {
+        "id": "aws_essentials",
+        "dates": "January 2019",
+        "qualification": "AWS Technical Essentials & Developing on AWS",
+        "school": "QA",
+        "type": "certification",
+        "short_bio": "This introductory course, demonstrates the basics AWS products, services, and common solutions. "
+      }
+    ],
+    "2018": [
+      {
+        "id": "opu_cyber",
+        "dates": "January 2018",
+        "qualification": "Introduction to Cyber Security",
+        "school": "Open University",
+        "type": "education",
+        "short_bio": "An open University course to understand the fundamentals of cyber security and how to protect against online threats."
+      }
+    ],
+    "2017": [
+      {
+        "id": "ITIL",
+        "ITIL": "",
+        "dates": "January 2017",
+        "qualification": "ITIL® Foundation certificate",
+        "school": "BCS",
+        "type": "certification",
+        "short_bio": "ITIL is a body of knowledge and best practices for successful IT Service Management."
+      }
+    ],
+    "2016": [
+      {
+        "id": "java_se_7",
+        "dates": "November 2016",
+        "qualification": "Oracle Certified Associate, Java SE 7 Programmer",
+        "school": "Oracle",
+        "type": "certification",
+        "short_bio": "Oracle Certified Associate Java Programmer (OCAJP 7) is an associate-level certification that validates your basic skills of writing code with fundamental concepts of Java SE 7."
+      },
+      {
+        "id": "ISTQB_bcs",
+        "dates": "October 2016",
+        "qualification": "ISTQB-BCS Certiﬁed Tester Foundation Level",
+        "school": "BCS",
+        "type": "certification",
+        "short_bio": "The Foundation Level syllabus forms the basis of the International Software Testing Qualifications Board (ISTQB®) Certified Tester Scheme.\n"
+      },
+      {
+        "id": "university_analyst",
+        "dates": "August 2015 - May 2016 ",
+        "job_title": "Junior IT Analyst",
+        "company": "University of Hull, Hull",
+        "short_bio": "Supporting the IT Systems team to deploy new OS and provide technical support to lectures.",
+        "bio": [
+          "As a temporary help for the departments IT Systems team, tasks I had to perform included imaging lab pc's, installing new pc's, \ntesting new OS after they have been deployed and providing low level technical support to staff and students.\nWorking in the departments system team I can learn more about how a business' infrastructure is managed, supported and maintained."
+        ],
+        "achievements": [
+          "Developing a good reputation with lectures and the IT team",
+          "Understanding business infrastructure and deployment on a large scale",
+          "Provide extra help for the IT team",
+          "Deploy PC images for the start of term",
+          "Provide Technical support to the lectures"
+        ],
+        "type": "work"
+      },
+      {
+        "id": "university",
+        "dates": "2013 - 2016",
+        "qualification": "Bachelor's Degree with Hons, Computer Science with Games Development",
+        "school": "The University of Hull",
+        "type": "education",
+        "short_bio": "Studying various computer science topics resulting in a 2:1 Bachelors Degree with Hons.",
+        "bio": [
+          "First Year Overall Grade - 76%",
+          "\t- Computer Systems - 61%",
+          "\t- IT and professional Skills - 76%",
+          "\t- Programming 1 - 87%",
+          "\t- Programming 2 - 83%",
+          "\t- Quantitative Methods for Computing - 69%",
+          "\t- Software Engineering - 69%",
+          "\nSecond Year Overall Grade - 68.8%",
+          "\t- 2D graphics - 70%",
+          "\t- Advance programming - 64%",
+          "\t- Artificial intelligence - 77%",
+          "\t- Networking and Games Architecture- 71%",
+          "\t- Simulation and 3D graphics - 71%",
+          "\t- System analysis - 60%",
+          "\nThird Year Overall Grade - 66%",
+          "\t- Mobile Device and Applications - 62%",
+          "\t- Neural, Emergent and Agent Technology - 55%",
+          "\t- Stereo Games for the treatment of lazy eyes in children (Dissertation) - 62%",
+          "\t- Commercial Games Development - 71%",
+          "\t- Games Programming and Advance Graphics - 86%"
+        ]
+      }
+    ],
+    "2015": [
+      {
+        "id": "uni_software_dev",
+        "dates": "March 2015 - August 2015",
+        "job_title": "Software Engineer",
+        "company": "University of Hull, Hull",
+        "short_bio": "Working within the NHS radiotherapy department to support on going research.",
+        "bio": [
+          "As Part of a Collaboration with the University of Hull and NHS Castle Hill Hospital. Working with the Radiotherapy Physics Department to help develop a C# script to work on Eclipse (Varian Medical Systems) to create a tool to support research in radiotherapy.",
+          "The Aim of the tool is to aid in the quality assurance process of the treatment plans"
+        ],
+        "achievements": [
+          "Develop research software for an NHS department",
+          "Working with the NHS to develop/further understand the Varian system",
+          "Provide a platform for the NHS team to further develop"
+        ],
+        "type": "work"
+      }
+    ],
+    "2014": [
+      {
+        "id": "hive_research",
+        "dates": "February 2014 - September 2014",
+        "job_title": "HIVE Research Internship",
+        "company": "University of Hull, Hull",
+        "short_bio": "Working within Hull universities Immersive Virtual Environment to develop a Virtual reality Star Wars like experience.",
+        "bio": [
+          "I worked on a project within Hull Immersive Virtual Environment, which investigated using hand held devices to aid in Virtual Environments.",
+          "Using a Wii remote, Unity, Virtual Reality Peripheral Network and a back projected 4-sided cube, I created a Star Wars based game in which the user used the Wii remote to controller the lightsaber."
+        ],
+        "achievements": [
+          "Research into my chosen project",
+          "Develop a prototype application",
+          "Created a working prototype",
+          "Understanding Virtual Reality technology",
+          "Working to deadlines"
+        ],
+        "type": "work"
+      }
+    ],
+    "2012": [
+      {
+        "id": "olympics_2012",
+        "dates": "July 2012 - September 2012",
+        "job_title": "Security",
+        "company": "G4S, London Olympics 2012",
+        "short_bio": "Working as full time at the London 2012 olympics in partnership with G4S and Bridging the Gap project to provide spectator safety.",
+        "bio": [
+          "This was a full-time security position working on the Olympic Park for the London 2012 Olympic & Paralympic Games.",
+          "During this time, I worked closely with the Armed Forces as part of the radiation team, scanning visitors as they entered the park for increased levels of radiation.",
+          "I had to be alert and react quickly to any alerts. I also worked on the personal security areas (PSA), bag searching and body searching visitors to the park. I also used the x-ray machine to pre-search bags."
+        ],
+        "achievements": [
+          "First line of security for the Olympic park",
+          "Proactive in maintain customers safety",
+          "Provide help and assistance to customers",
+          "Developed skills outside of my comfort zone"
+        ],
+        "type": "work"
+      }
+    ]
+  }
 }

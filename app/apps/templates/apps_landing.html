@@ -23,7 +23,7 @@
 {% macro build_icon(app_config) %}
 <div class="col-md-3 app_outer">
     <div class="app">
-        <img alt="img_link" height="200px" src="{{url_for('static',filename=app_config['Img_URL'])}}"/>
+        <img alt="img_link" height="200px" src="{{url_for('apps_page.static',filename=app_config['Img_URL'])}}"/>
         <h1>{{app_config['Tool_Name']}}</h1>
         <p>{{app_config['Tool_Desc']}}</p>
         <form action="{{ url_for('apps_page.' + app_config['Route']) }}">

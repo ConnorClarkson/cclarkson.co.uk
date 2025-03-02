@@ -13,7 +13,10 @@
     <h3>Technology Stack</h3>
     <hr/>
     <h5 style="font-family: 'Source Code Pro', monospace; text-align: center;">
-        Python, Flask, Linux, Kafka, AWS, CI/CD, Jenkins
+        {{ resume['cv_data']['tech'] }}
+    </h5>
+    <h5 style="font-family: 'Source Code Pro', monospace; text-align: center;">
+        {{ resume['cv_data']['vendors'] }}
     </h5>
     <h5 style="font-family: 'Source Code Pro', monospace; text-align: center;">
         Software Engineering, Data Engineering
@@ -21,8 +24,8 @@
     <br/>
 
     {% if resume %}
-        {% for year in resume %}
-            {% for proj in resume[year] %}
+        {% for year in resume['experience'] %}
+            {% for proj in resume['experience'][year] %}
                 {% if 'current_role' in proj %}
                 <h3 style="text-align:left"> Current Role </h3>
                 <ul style="list-style-type: none;">
@@ -45,10 +48,10 @@
         <br>
         <h3>Experience</h3>
         <hr/>
-        {% for year in resume %}
+        {% for year in resume['experience'] %}
             <h4 style="text-align:left"> {{year}} </h4>
 
-            {% for proj in resume[year] %}
+            {% for proj in resume['experience'][year] %}
                 {% if 'current_role' not in proj %}
                 <ul style="list-style-type: none;">
                     <li>

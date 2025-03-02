@@ -9,62 +9,61 @@
 
 {% block content %}
 <div class="container">
-    {% if text %}
-        {% if text['type'] == "work" %}
+    {% if experience %}
+        {% if experience['type'] == "work" %}
         <div class="row">
             <ul style="list-style-type:none; text-align:left;float:left; padding-left:0px;">
-                <li><h3>{{ text['job_title'] }}</h3></li>
-                <li><h3>{{ text['company'] }}</h3></li>
-                <li><h4>{{ text['dates'] }}</h4></li>
+                <li><h3>{{ experience['job_title'] }}</h3></li>
+                <li><h3>{{ experience['company'] }}</h3></li>
+                <li><h4>{{ experience['dates'] }}</h4></li>
                 <li>&nbsp;</li>
-                <li><h5>{{ text['short_bio'] }}</h5></li>
+                <li><h5>{{ experience['short_bio'] }}</h5></li>
             </ul>
         </div>
         <hr/>
         <div class="row">
             <h2>Experience</h2>
             <ul style="list-style-type:none; text-align:left;">
-                {% for project in text['bio'] %}
+                {% for project in experience['bio'] %}
                 <li><p>{{ project | safe}}</p></li>
-                <li>&nbsp;</li>
-                {% endfor %}
+                {%- endfor %}
             </ul>
         </div>
-        {% if 'technologies' in text %}
+        {% if 'technologies' in experience %}
         <div class="row">
             <h2>Key Technologies</h2>
             <ul style="list-style-type:none; text-align:left;">
-                {% for project in text['technologies'] %}
+                {% for project in experience['technologies'] %}
                 <li><p>{{ project }}</p></li>
                 {% endfor %}
             </ul>
         </div>
         {% endif %}
-        {% if 'achievements' in text %}
+        {% if 'achievements' in experience %}
         <div class="row">
             <h2>Key Achievements</h2>
             <ul style="list-style-type:none; text-align:left;">
-                {% for project in text['achievements'] %}
+                {% for project in experience['achievements'] %}
                 <li><p>{{ project }}</p></li>
                 {% endfor %}
             </ul>
         </div>
         {% endif %}
-        {% elif text['type'] == "education" or text['type'] == "certification" %}
+        {% elif experience['type'] == "education" or experience['type'] == "certification" %}
         <div class="row">
             <ul style="list-style-type:none; text-align:left;float:left; padding-left:0px;">
-                <li><h3>{{ text['qualification'] }}</h3></li>
-                <li><h3>{{ text['school'] }}</h3></li>
-                <li><h4>{{ text['dates'] }}</h4></li>
-                <li><h5>{{ text['short_bio'] }}</h5></li>
+                <li><h3>{{ experience['qualification'] }}</h3></li>
+                <li><h3>{{ experience['school'] }}</h3></li>
+                <li><h4>{{ experience['dates'] }}</h4></li>
+                <li><h5>{{ experience['short_bio'] }}</h5></li>
             </ul>
         </div>
-        {% if 'bio' in text %}
+        {% if 'bio' in experience %}
         <hr/>
         <div class="row">
             <h2>Course</h2>
             <ul style="list-style-type:none; text-align:left;">
-                {% for project in text['bio'] %}
+                {% for project in experience['bio'] %}
                 {% if '-' not in project[1] %}
                 <li>&nbsp;</li>
                 {% endif %}
@@ -73,13 +72,13 @@
             </ul>
         </div>
         {% endif %}
-        {% elif text['type'] == "blog" %}
+        {% elif experience['type'] == "blog" %}
         <div class="row">
             <ul style="list-style-type:none; text-align:left;float:left; padding-left:0px;">
-                <li><h3>{{ text['title'] }}</h3></li>
-                <li><h5><a href="{{ text['link'] }}">{{ text['link'] }} </a></h5></li>
+                <li><h3>{{ experience['title'] }}</h3></li>
+                <li><h5><a href="{{ experience['link'] }}">{{ experience['link'] }} </a></h5></li>
                 <li>&nbsp;</li>
-                <li><h5>{{ text['short_bio'] }}</h5></li>
+                <li><h5>{{ experience['short_bio'] }}</h5></li>
             </ul>
         </div>
         <hr/>

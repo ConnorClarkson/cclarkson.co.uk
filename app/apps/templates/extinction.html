@@ -9,15 +9,19 @@
 {% block content %}
 <div class="container">
 
-    {% for animal in returned_value %}
+{% for animal in returned_value %}
     {% if loop.index0 % 2 == 0 %}
-    {% if not loop.first %}
+        {% if not loop.first -%}
     <!-- {{loop.index}}-->
 </div>
-{% endif %}
-<div class="row" style="">
+        {%- endif %}
+<div class="row" style="justify-content-start">
     {% endif %}
+    {% if not loop.last -%}
     <div class="col" style="padding-left:15px;margin:10px">
+    {% else %}
+    <div class="col-6" style="padding-left:15px;margin:10px">
+    {% endif %}
         <div class="row" style="padding-left:15px">
             <h3>{{animal[4] | replace("_"," ")}}</h3>
         </div>

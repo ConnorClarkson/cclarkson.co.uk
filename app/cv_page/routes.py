@@ -25,5 +25,5 @@ def cv():
 
 @bp.route('/cv/<string:cv_id>')
 def cv_extended(cv_id):
-    item = helpers.get_value_from_key('id', cv_id, resume)
-    return render_template('posts.html', text=item)
+    resume_data = helpers.get_value_from_key('id', cv_id, resume['experience'])
+    return render_template('cv_posts.html', experience=resume_data)
