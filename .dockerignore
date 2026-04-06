@@ -1,0 +1,16 @@
+.git
+.gitignore
+.gitattributes
+.idea
+venv
+__pycache__
+*.pyc
+*.pem
+*.db
+logs/
+.flaskenv
+.DS_Store
+.claude/
+app/apps/apps_static/WWF/animalImages/
+app/apps/apps_static/WWF/resizedImages/
+app/apps/apps_static/WWF/outputImages/
