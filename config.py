@@ -37,6 +37,7 @@ class Config(object):
 
 class TestConfig(Config):
     TESTING = True
+    PROPAGATE_EXCEPTIONS = False
     SECRET_KEY = "test-secret-key"
     DYNAMO_SESSION = None
     DYNAMO_CLIENT = None
