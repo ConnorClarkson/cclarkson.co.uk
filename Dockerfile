@@ -16,10 +16,8 @@ COPY . /app
 # Expose the port on which the Flask app will run
 EXPOSE 5001
 
-# Set environment variables (optional)
+# Set environment variables
 ENV FLASK_APP=application.py
-ENV FLASK_RUN_HOST=0.0.0.0
-ENV FLASK_RUN_PORT=5001
 
-# Run the Flask app when the container starts
-CMD ["flask", "run"]
+# Run via gunicorn (production WSGI server)
+CMD ["gunicorn", "--bind", "0.0.0.0:5001", "--workers", "4", "application:application"]
