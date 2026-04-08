@@ -1,218 +1,327 @@
 import os
+import re
 import time
-from html.parser import HTMLParser
-from http.client import responses
-
-import cloudscraper
+import math
 import requests
 import cv2
-import math
-from lxml import html
 from pathlib import Path
-from scrapling.defaults import Fetcher, StealthyFetcher
+
+# ---------------------------------------------------------------------------
+# IUCN Red List API v4  (https://api.iucnredlist.org)
+# Requires a free API token – register at: https://api.iucnredlist.org/users/sign_up
+# Set the token in the environment:  export IUCN_API_TOKEN=<your_token>
+#
+# Images are sourced from the Wikipedia REST API (no key required).
+# ---------------------------------------------------------------------------
+
+IUCN_API_BASE = "https://api.iucnredlist.org/api/v4"
+WIKI_API_BASE = "https://en.wikipedia.org/api/rest_v1"
+HEADERS = {"User-Agent": "cclarkson.co.uk/1.0 (endangered-species-art-project)"}
+
+# EN = Endangered, CR = Critically Endangered
+ENDANGERED_CATEGORIES = {"EN", "CR"}
+
+CATEGORY_LABELS = {
+    "CR": "Critically Endangered",
+    "EN": "Endangered",
+    "VU": "Vulnerable",
+    "NT": "Near Threatened",
+    "LC": "Least Concern",
+    "DD": "Data Deficient",
+    "EX": "Extinct",
+    "EW": "Extinct in the Wild",
+}
 
 
-class grabChildPages(HTMLParser):
-    htmlList = []
+# ---------------------------------------------------------------------------
+# IUCN API helpers
+# ---------------------------------------------------------------------------
 
-    def handle_starttag(self, tag, attrs):
-        for attr in attrs:
-            if attr[0] == 'href' and not attr[1] == None:
-                if "/species/" in attr[1] and attr[1] not in self.htmlList \
-                        and not "https://" in attr[1] and not "?" in attr[1]:
-                    self.htmlList.append("http://www.worldwildlife.org" + attr[1])
+def get_endangered_species(token):
+    """Return a list of all EN/CR taxa from the IUCN Red List API v4."""
+    species_list = []
+    page = 0
+    while True:
+        url = f"{IUCN_API_BASE}/taxa/page/{page}"
+        resp = requests.get(url, params={"token": token}, headers=HEADERS, timeout=30)
+        if resp.status_code != 200:
+            print(f"Warning: IUCN API returned {resp.status_code} on page {page}. Stopping pagination.")
+            break
+        data = resp.json()
+        taxa = data.get("taxa", [])
+        if not taxa:
+            break
+        for taxon in taxa:
+            if taxon.get("category") in ENDANGERED_CATEGORIES:
+                species_list.append(taxon)
+        print(f"  Page {page}: {len(taxa)} taxa fetched, {len(species_list)} endangered so far")
+        page += 1
+        time.sleep(0.5)
+    return species_list
 
 
-def grabImages(childpage):
-    tree = html.fromstring(childpage.content)
-    img = tree.xpath('//div/@data-src')
-    for i in img:
-        if '/story_full_width/' in i or '/hero_full/' in i:
-            return i
+def get_species_narrative(species_id, token):
+    """Return the population narrative text for a species (plain text, HTML stripped)."""
+    url = f"{IUCN_API_BASE}/taxa/{species_id}/narrative"
+    try:
+        resp = requests.get(url, params={"token": token}, headers=HEADERS, timeout=30)
+        if resp.status_code == 200:
+            data = resp.json()
+            # v4 nests narrative under a 'narrative' key; population is an HTML string
+            narrative = data.get("narrative", {})
+            pop_html = narrative.get("population", "") or ""
+            if pop_html:
+                # Strip HTML tags to get plain text
+                return re.sub(r"<[^>]+>", " ", pop_html).strip()
+    except Exception as e:
+        print(f"  Warning: narrative fetch failed for {species_id}: {e}")
+    return "Unknown"
 
-    for i in img:
-        if 'hero_small' in i or 'portrait_overview' in i:
-            return i
+
+def get_species_habitats(species_id, token):
+    """Return a comma-separated string of habitat names for a species."""
+    url = f"{IUCN_API_BASE}/taxa/{species_id}/habitats"
+    try:
+        resp = requests.get(url, params={"token": token}, headers=HEADERS, timeout=30)
+        if resp.status_code == 200:
+            data = resp.json()
+            habitats = data.get("habitats", [])
+            names = [h.get("description", "").strip() for h in habitats if h.get("description")]
+            return ", ".join(names) if names else "Unknown"
+    except Exception as e:
+        print(f"  Warning: habitats fetch failed for {species_id}: {e}")
+    return "Unknown"
 
 
-def grabDetails(childpage):
-    tree = html.fromstring(childpage.content)
-    details = {}
-    population = tree.xpath('//strong[@class="hdr"]')
-    for p in population:
-        sibling = p.getnext()
-        if sibling is not None:
-            title = sibling.getprevious().text
-            if title not in ['Status', 'Population', 'Scientific Name', 'Height', 'Weight', 'Habitats', 'Places']:
-                continue
-            if sibling.text.strip() == "":
-                for elem in sibling.getchildren():
-                    if elem.text.strip() != "":
-                        if title in details:
-                            details[title] = details[title] + ", " + elem.text.strip()
-                        else:
-                            txt = elem.text.strip()
-                            txt = txt[0].upper() + txt[1:]
-                            details[title] = txt
-            if sibling.text.strip() != "":
-                if title in details:
-                    details[title] = details[title] + ", " + sibling.text.strip()
-                else:
-                    txt = sibling.text.strip()
-                    txt = txt[0].upper() + txt[1:]
-                    details[title] = txt
-    tmp = []
-    for key in details:
-        tmp.append([key, details[key]])
-    return tmp
+def get_species_countries(species_id, token):
+    """Return a comma-separated string of country names for a species."""
+    url = f"{IUCN_API_BASE}/taxa/{species_id}/countries"
+    try:
+        resp = requests.get(url, params={"token": token}, headers=HEADERS, timeout=30)
+        if resp.status_code == 200:
+            data = resp.json()
+            countries = data.get("countries", [])
+            names = [c.get("country", "").strip() for c in countries if c.get("country")]
+            return ", ".join(names) if names else "Unknown"
+    except Exception as e:
+        print(f"  Warning: countries fetch failed for {species_id}: {e}")
+    return "Unknown"
 
+
+# ---------------------------------------------------------------------------
+# Wikipedia image helper
+# ---------------------------------------------------------------------------
+
+def get_species_image(common_name, scientific_name):
+    """
+    Return a URL for a species image using the Wikipedia REST API.
+    Tries common_name first, falls back to scientific_name.
+    Returns None if no image found.
+    """
+    for name in [common_name, scientific_name]:
+        if not name:
+            continue
+        encoded = requests.utils.quote(name.replace(" ", "_"))
+        url = f"{WIKI_API_BASE}/page/summary/{encoded}"
+        try:
+            resp = requests.get(url, headers=HEADERS, timeout=10)
+            if resp.status_code == 200:
+                data = resp.json()
+                thumbnail = data.get("thumbnail", {})
+                img_url = thumbnail.get("source", "")
+                if img_url:
+                    # Request a larger version where possible
+                    for small in ["/150px-", "/240px-", "/320px-"]:
+                        img_url = img_url.replace(small, "/800px-")
+                    return img_url
+        except Exception as e:
+            print(f"  Warning: Wikipedia image fetch failed for '{name}': {e}")
+    return None
+
+
+# ---------------------------------------------------------------------------
+# Population parser (unchanged from original)
+# ---------------------------------------------------------------------------
 
 def calculate_population(animal):
+    """
+    Parse the population text (animal[1][1][1]) into numeric bounds.
+    Returns [min, max], ['Unknown'], or ['Extinct'].
+    """
     pop_text = animal[1][1][1]
     text = pop_text.split(' ')
     nums = []
     for word in text:
-        splitvar = '-'
-        # if '–' in word:
-        #     splitvar = '–'
-        # elif '–' in word:
-        #     splitvar = '–'
-        # elif '–' in word:
-        #     splitvar = '–'
-
-        for subsplit in word.split(splitvar):
+        for subsplit in word.split('-'):
             try:
                 num = float(subsplit.replace(',', ''))
                 if num not in nums:
                     nums.append(num)
-            except ValueError as e:
+            except ValueError:
                 pass
     if not nums:
         if 'Unknown' in pop_text:
-            nums = ['Unknown']
-        elif 'extinct' in pop_text:
-            nums = ['Extinct']
+            return ['Unknown']
+        elif 'extinct' in pop_text.lower():
+            return ['Extinct']
         else:
-            nums = ['Unknown']
-        return nums
-
+            return ['Unknown']
     if len(nums) == 1:
         nums = [nums[0], nums[0]]
     if len(nums) > 2:
-        nums = [nums[0], nums[0]]
+        nums = [nums[0], nums[-1]]
     return nums
 
 
+# ---------------------------------------------------------------------------
+# Main
+# ---------------------------------------------------------------------------
+
 if __name__ == "__main__":
-    url = 'https://www.worldwildlife.org/species/directory?direction=desc&sort=extinction_status'
-    ROOT = "../apps/apps_static/WWF"  # os.path.join(settings.APP_STATIC, "img/WWF")
-    img_ROOT = "../apps_static/WWF"  # os.path.join(settings.APP_STATIC, "img/WWF")
-    # headers = {
-    #     "sec-ch-ua": '"Google Chrome";v="131", "Chromium";v="131", "Not-A Brand";v="24"',
-    #     "sec-ch-ua-mobile": "?0",
-    #     "sec-ch-ua-platform": "Windows",
-    #     "sec-fetch-site": "same-origin",
-    #     "sec-fetch-mode": "cors",
-    #     'Connection': 'keep-alive',
-    #     'host': 'www.worldwildlife.org',
-    #     'Referer': 'https://www.google.com/search?q=worldwildlife'}
-    # result = requests.get(url, headers=headers, verify=False)
-    # scraper = cloudscraper.create_scraper()
-    # response = scraper.get(url, headers=headers)
-    response = StealthyFetcher.fetch(url)
-    if response.status != 200:
-        print(f"Error: Could not connect to the website. {response.status_code}")
+    TOKEN = os.environ.get("IUCN_API_TOKEN")
+    if not TOKEN:
+        print("Error: IUCN_API_TOKEN environment variable not set.")
+        print("Register for a free token at: https://api.iucnredlist.org/users/sign_up")
         exit(1)
-    time.sleep(2)
-    # response = urllib.request.urlopen(url, context=ssl._create_unverified_context(), headers={'User-Agent': 'Mozilla/5.0'})
-    parser = grabChildPages()
-    parser.feed(response.body)
-    webpageList = parser.htmlList[2:]
+
+    ROOT = "../apps/apps_static/WWF"
+    img_ROOT = "../apps_static/WWF"
+
+    # ------------------------------------------------------------------
+    # 1. Fetch endangered species list from IUCN
+    # ------------------------------------------------------------------
+    print("Fetching Endangered/Critically Endangered species from IUCN Red List...")
+    all_species = get_endangered_species(TOKEN)
+    print(f"Total: {len(all_species)} species to process\n")
+
+    # ------------------------------------------------------------------
+    # 2. Fetch details for each species
+    # ------------------------------------------------------------------
     imgHTMLList = []
-    for page in webpageList:
-        response = StealthyFetcher.fetch(page)
-        time.sleep(0.5)
-        details = grabDetails(response.body)
-        if not details:
-            exit(1)
-        if 'Endangered' in details[0][1]:
-            image = grabImages(response)
-            filename = page.split('/')[-1]
-            filename = filename.replace('-', '_')
-            imgHTMLList.append([page, details, image, filename, "{}/animalImages/{}.jpg".format(ROOT, filename)])
-            print(filename)
+    for taxon in all_species:
+        species_id = taxon.get("taxonid") or taxon.get("sis_id")
+        sci_name = taxon.get("scientific_name", "")
+        common_name = taxon.get("main_common_name", "")
+        category = taxon.get("category", "")
 
-    if not Path(ROOT).exists():
-        Path(ROOT).mkdir(parents=True, exist_ok=True)
-    if not Path(ROOT + '/animalImages/').exists():
-        Path(ROOT + '/animalImages/').mkdir(parents=True, exist_ok=True)
-    if not Path(ROOT + '/resizedImages/').exists():
-        Path(ROOT + '/resizedImages/').mkdir(parents=True, exist_ok=True)
-    if not Path(ROOT + '/outputImages/').exists():
-        Path(ROOT + '/outputImages/').mkdir(parents=True, exist_ok=True)
+        display_name = common_name or sci_name
+        filename = display_name.lower().replace(" ", "_").replace("-", "_")
+        if not filename or not species_id:
+            continue
 
-    # remove all existing files in the directories
-    for filename in os.listdir(ROOT + '/animalImages/'):
-        os.remove(ROOT + '/animalImages/' + filename)
-    for filename in os.listdir(ROOT + '/resizedImages/'):
-        os.remove(ROOT + '/resizedImages/' + filename)
-    for filename in os.listdir(ROOT + '/outputImages/'):
-        os.remove(ROOT + '/outputImages/' + filename)
-    for imageUrl in imgHTMLList:
-        if imageUrl[2] != "":
-            try:
-                # urllib.request.urlretrieve(str(imageUrl[2]), imageUrl[-1])
-                response = scraper.get(str(imageUrl[2]))
-                if response.status_code == 200:
-                    with open(imageUrl[-1], "wb") as file:
-                        file.write(response.content)
-            except:
-                print(imageUrl[-1])
+        print(f"Processing: {display_name}")
+
+        pop_text = get_species_narrative(species_id, TOKEN)
+        time.sleep(0.3)
+        habitats = get_species_habitats(species_id, TOKEN)
+        time.sleep(0.3)
+        places = get_species_countries(species_id, TOKEN)
+        time.sleep(0.3)
+
+        # Build details list in the same format as the old grabDetails()
+        details = [
+            ["Status", CATEGORY_LABELS.get(category, category)],
+            ["Population", pop_text],
+            ["Scientific Name", sci_name],
+            ["Habitats", habitats],
+            ["Places", places],
+        ]
+
+        iucn_url = f"https://www.iucnredlist.org/species/{species_id}"
+        image_url = get_species_image(common_name, sci_name)
+
+        imgHTMLList.append([
+            iucn_url,
+            details,
+            image_url,
+            filename,
+            "{}/animalImages/{}.jpg".format(ROOT, filename),
+        ])
+
+    # ------------------------------------------------------------------
+    # 3. Create output directories
+    # ------------------------------------------------------------------
+    for subdir in ["", "/animalImages", "/resizedImages", "/outputImages"]:
+        Path(ROOT + subdir).mkdir(parents=True, exist_ok=True)
+
+    # Clear existing files
+    for subdir in ["/animalImages", "/resizedImages", "/outputImages"]:
+        for f in os.listdir(ROOT + subdir):
+            os.remove(ROOT + subdir + "/" + f)
+
+    # ------------------------------------------------------------------
+    # 4. Download images
+    # ------------------------------------------------------------------
+    print("\nDownloading images...")
+    for entry in imgHTMLList:
+        image_url = entry[2]
+        dest_path = entry[4]
+        if not image_url:
+            print(f"  No image found for {entry[3]}")
+            continue
+        try:
+            resp = requests.get(image_url, headers=HEADERS, timeout=15)
+            if resp.status_code == 200:
+                with open(dest_path, "wb") as f:
+                    f.write(resp.content)
+            else:
+                print(f"  Image download failed for {entry[3]}: HTTP {resp.status_code}")
+        except Exception as e:
+            print(f"  Image download error for {entry[3]}: {e}")
+
+    # ------------------------------------------------------------------
+    # 5. Pixelate images and build CSV
+    # ------------------------------------------------------------------
+    print("\nProcessing images...")
     final_csv = []
     for animal in imgHTMLList:
         numList = calculate_population(animal)
-        if numList is not None:
-            if not os.path.exists(animal[-1]):
+        if numList is None:
+            continue
+        if not os.path.exists(animal[4]):
+            continue
+
+        img = cv2.imread(animal[4])
+        if img is None:
+            continue
+
+        animalName = animal[3].replace(" ", "")
+        img = cv2.resize(img, (800, 800))
+        cv2.imwrite("{}/resizedImages/{}.jpg".format(ROOT, animalName), img)
+
+        if len(numList) == 1:
+            if numList[0] == "Unknown":
+                altImage = "Unknown"
+                numList[0] = 0
                 continue
-            img = cv2.imread(animal[-1])
-            animalName = animal[-2].replace(' ', '')
-            img = cv2.resize(img, (800, 800))
-            cv2.imwrite("{}/resizedImages/{}.jpg".format(ROOT, animalName), img)
-            if len(numList) == 1:
-                if numList[0] == 'Unknown':
-                    altImage = 'Unknown'
-                    numList[0] = 0
-                    continue
-                elif numList[0] == 'Extinct':
-                    numList[0] = 0
-                    altImage = 'Extinct'
+            elif numList[0] == "Extinct":
+                numList[0] = 0
+                altImage = "Extinct"
 
-                img = cv2.imread(str('{}/' + altImage + '.jpg').format(ROOT))
-                img = cv2.resize(img, (800, 800))
-                cv2.imwrite("{}/outputImages/{}.jpg".format(ROOT, animalName), img)
-            else:
-                sum = 0
-                for num in numList:
-                    sum += num
-                if sum != 0:
-                    avg = float(sum / float(len(numList)))
-                    width = math.sqrt(avg)  # width and height are the same
-                    height = int(math.ceil(width))
-                    width = int(math.floor(width))
-                    img = cv2.resize(img, (width, height))
-                    img = cv2.resize(img, (800, 800), interpolation=cv2.INTER_NEAREST)
-                    cv2.imwrite("{}/outputImages/{}.jpg".format(ROOT, animalName), img)
+            placeholder = cv2.imread("{}/{}.jpg".format(ROOT, altImage))
+            if placeholder is not None:
+                placeholder = cv2.resize(placeholder, (800, 800))
+                cv2.imwrite("{}/outputImages/{}.jpg".format(ROOT, animalName), placeholder)
+        else:
+            total = sum(numList)
+            if total != 0:
+                avg = float(total) / float(len(numList))
+                width = math.sqrt(avg)
+                height = int(math.ceil(width))
+                width = int(math.floor(width))
+                img_small = cv2.resize(img, (max(width, 1), max(height, 1)))
+                img_pixel = cv2.resize(img_small, (800, 800), interpolation=cv2.INTER_NEAREST)
+                cv2.imwrite("{}/outputImages/{}.jpg".format(ROOT, animalName), img_pixel)
 
-        tmp = []
-        tmp.append(numList[0])
+        tmp = [numList[0]]
         for row in animal:
             tmp.append(row)
         tmp.append("{}/resizedImages/{}.jpg".format(img_ROOT, animalName))
         tmp.append("{}/outputImages/{}.jpg".format(img_ROOT, animalName))
         final_csv.append(tmp)
 
-with open("{}/list.csv".format(ROOT), "w")as f:
-    for row in final_csv:
-        f.write(str(row) + "\n")
+    with open("{}/list.csv".format(ROOT), "w") as f:
+        for row in final_csv:
+            f.write(str(row) + "\n")
 
-# image, pixel image, numbers to json them web[age
+    print(f"\nDone! {len(final_csv)} animals written to {ROOT}/list.csv")
